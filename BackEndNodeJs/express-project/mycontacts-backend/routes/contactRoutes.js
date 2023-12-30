@@ -1,0 +1,10 @@
+const express = require('express')
+const router = express.Router();
+const {getContact,createContact,updateContact,deleteContact} = require("../controllers/contactController")
+
+router.route('/').get(getContact);
+router.route('/:id').post(createContact).put(updateContact).delete(deleteContact);
+
+
+
+module.exports = router;
