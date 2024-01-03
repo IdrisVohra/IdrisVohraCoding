@@ -5,8 +5,11 @@ const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const cors = require('cors');
 const mongoose=require('mongoose');
+const router =require("./router");
 
 const app = express();
+
+
 
 app.use(cors({
     credentials:true,
@@ -27,3 +30,5 @@ const MONGO_URL='mongodb+srv://idrees786:idrees786@cluster0.sfr7hr4.mongodb.net/
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL);
 mongoose.connection.on('error',(error: Error)=> console.error(error));
+
+app.use('/',router());
