@@ -365,3 +365,13 @@
     }
   }
   
+  .login-container {
+    background-color: white;
+    color:darkred;
+    text-align: center;
+  }
+
+  .login-Form {
+    background-color: darkgray;
+  }
+

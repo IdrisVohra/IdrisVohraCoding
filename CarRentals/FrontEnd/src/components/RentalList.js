@@ -4,11 +4,12 @@ import '../styles/global.css';
 import { Link } from "react-router-dom";
 import { FaEdit } from 'react-icons/fa';
 
+
 const RentalList = () => {
   const [rentals, setRentals] = useState([]);
   const [documents, setDocuments] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
-  const [currentRentalId, setCurrentRentalId] = useState(null);
+  const [currentRentalId, setCurrentRentalId] = useState("");
 
   useEffect(() => {
     const fetchRentals = async () => {
@@ -26,7 +27,7 @@ const RentalList = () => {
     try {
       const res = await axios.get(`http://localhost:5000/api/documents/${rentalId}`);
       setDocuments(res.data);
-      setCurrentRentalId(rentalId);
+      setCurrentRentalId(rentalId.id);
       setShowPopup(true);
     } catch (error) {
       console.error("Error fetching documents:", error);
@@ -66,9 +67,9 @@ const RentalList = () => {
             {rental.extensionTime && (
               <p><strong>Extension Time:</strong> {rental.extensionTime} hours</p>
             )}
-            <p><strong>Price Per Hour:</strong> ${rental.pricePerHour}</p>
-            <p><strong>Advance Paid:</strong> ${rental.advancePaid}</p>
-            <p><strong>Total Trip Charges:</strong> ${rental.totalTripCharges}</p>
+            <p><strong>Price Per Hour:</strong> Rs.{rental.pricePerHour}</p>
+            <p><strong>Advance Paid:</strong> Rs.{rental.advancePaid}</p>
+            <p><strong>Total Trip Charges:</strong> Rs.{rental.totalTripCharges}</p>
             <p>
               <strong>Documents Submitted:</strong> 
               {rental.documentsSubmitted ? (

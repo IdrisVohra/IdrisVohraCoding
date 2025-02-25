@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
+
+/* Vendors Section */
+.featureVenue {
+    padding: 16px;
+}
+
+.featureVenue h2 {
+    font-family: 'Jura', sans-serif;
+    font-size: 35px;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.05em;
+    text-align: left;
+    background: linear-gradient(to right, #917FBA, #FF5FA0);
+    -webkit-background-clip: text;
+    margin: 0;
+}
+
+/* Vendor Cards */
+.featureVenue-list {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    padding: 10px;
+    width: 50%;
+    margin: 0;
+}
+
+.featureVenue-card {
+    flex: 0 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 33%;
+    padding-top: 2px;
+    margin: 0;
+}
+
+.featureVenue-card .outerImg {
+    height: 200px;
+}
+.featureVenue-card .content {
+    padding: 10px;
+    margin: 0;
+}
+.featureVenue-card h3 {
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    font-family : 'Jura', sans-serif;
+    padding: 1px;
+    margin: 0;
+}

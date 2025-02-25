@@ -80,7 +80,7 @@ app.get("/api/rentals/:id", async (req, res) => {
 
 //[HttpGet Method]
 app.get("/api/documents/:rentalId", async (req, res) => {
-  const { rentalId } = req.params.rentalId;
+  const { rentalId } = req.params;
   try {
     const documents = await SubmittedDocuments.findAll({
       where: { rentalId },

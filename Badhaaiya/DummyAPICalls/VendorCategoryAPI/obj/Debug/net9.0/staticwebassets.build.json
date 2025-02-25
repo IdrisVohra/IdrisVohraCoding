@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "0iMUnBrqxcpuagdXYE/dN3CiytN8FB2cAbALckuEL1Q=",
+  "Source": "VendorCategoryAPI",
+  "BasePath": "_content/VendorCategoryAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

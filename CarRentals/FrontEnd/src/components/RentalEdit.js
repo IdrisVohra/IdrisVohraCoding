@@ -40,7 +40,6 @@ const RentalEdit = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        alert(JSON.stringify(id));
       await axios.put(`http://localhost:5000/api/rentals/${id}`, rental);
       alert("Rental updated successfully!");
       navigate('/rental-list');

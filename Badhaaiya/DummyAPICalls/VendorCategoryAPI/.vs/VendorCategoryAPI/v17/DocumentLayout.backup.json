@@ -1,0 +1,136 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{19CCE49A-A62C-470D-5225-2784D0430C09}|VendorCategoryAPI.csproj|c:\\users\\idree\\source\\repos\\vendorcategoryapi\\controllers\\featuredcartererscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19CCE49A-A62C-470D-5225-2784D0430C09}|VendorCategoryAPI.csproj|solutionrelative:controllers\\featuredcartererscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19CCE49A-A62C-470D-5225-2784D0430C09}|VendorCategoryAPI.csproj|c:\\users\\idree\\source\\repos\\vendorcategoryapi\\models\\featuredcarterers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19CCE49A-A62C-470D-5225-2784D0430C09}|VendorCategoryAPI.csproj|solutionrelative:models\\featuredcarterers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19CCE49A-A62C-470D-5225-2784D0430C09}|VendorCategoryAPI.csproj|c:\\users\\idree\\source\\repos\\vendorcategoryapi\\controllers\\vendorcardscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19CCE49A-A62C-470D-5225-2784D0430C09}|VendorCategoryAPI.csproj|solutionrelative:controllers\\vendorcardscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19CCE49A-A62C-470D-5225-2784D0430C09}|VendorCategoryAPI.csproj|c:\\users\\idree\\source\\repos\\vendorcategoryapi\\models\\vendorcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19CCE49A-A62C-470D-5225-2784D0430C09}|VendorCategoryAPI.csproj|solutionrelative:models\\vendorcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19CCE49A-A62C-470D-5225-2784D0430C09}|VendorCategoryAPI.csproj|c:\\users\\idree\\source\\repos\\vendorcategoryapi\\controllers\\vendorcategorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19CCE49A-A62C-470D-5225-2784D0430C09}|VendorCategoryAPI.csproj|solutionrelative:controllers\\vendorcategorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19CCE49A-A62C-470D-5225-2784D0430C09}|VendorCategoryAPI.csproj|c:\\users\\idree\\source\\repos\\vendorcategoryapi\\models\\vendorcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19CCE49A-A62C-470D-5225-2784D0430C09}|VendorCategoryAPI.csproj|solutionrelative:models\\vendorcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19CCE49A-A62C-470D-5225-2784D0430C09}|VendorCategoryAPI.csproj|c:\\users\\idree\\source\\repos\\vendorcategoryapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19CCE49A-A62C-470D-5225-2784D0430C09}|VendorCategoryAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FeaturedCarterersController.cs",
+              "DocumentMoniker": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\Controllers\\FeaturedCarterersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\FeaturedCarterersController.cs",
+              "ToolTip": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\Controllers\\FeaturedCarterersController.cs",
+              "RelativeToolTip": "Controllers\\FeaturedCarterersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T13:58:38.289Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FeaturedCarterers.cs",
+              "DocumentMoniker": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\Models\\FeaturedCarterers.cs",
+              "RelativeDocumentMoniker": "Models\\FeaturedCarterers.cs",
+              "ToolTip": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\Models\\FeaturedCarterers.cs",
+              "RelativeToolTip": "Models\\FeaturedCarterers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T13:40:48.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VendorCard.cs",
+              "DocumentMoniker": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\Models\\VendorCard.cs",
+              "RelativeDocumentMoniker": "Models\\VendorCard.cs",
+              "ToolTip": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\Models\\VendorCard.cs",
+              "RelativeToolTip": "Models\\VendorCard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T12:18:02.296Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VendorCardsController.cs",
+              "DocumentMoniker": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\Controllers\\VendorCardsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\VendorCardsController.cs",
+              "ToolTip": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\Controllers\\VendorCardsController.cs",
+              "RelativeToolTip": "Controllers\\VendorCardsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T12:17:22.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "VendorCategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\Controllers\\VendorCategoryController.cs",
+              "RelativeDocumentMoniker": "Controllers\\VendorCategoryController.cs",
+              "ToolTip": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\Controllers\\VendorCategoryController.cs",
+              "RelativeToolTip": "Controllers\\VendorCategoryController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T11:36:35.295Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "VendorCategory.cs",
+              "DocumentMoniker": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\Models\\VendorCategory.cs",
+              "RelativeDocumentMoniker": "Models\\VendorCategory.cs",
+              "ToolTip": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\Models\\VendorCategory.cs",
+              "RelativeToolTip": "Models\\VendorCategory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T11:35:28.946Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T11:34:30.507Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
