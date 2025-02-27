@@ -19,7 +19,7 @@ const Vendor = () => {
 
     {/* Vender API Call */}
     useEffect(() => {
-        axios.get("http://localhost:5194/api/VendorCategory")
+        axios.get("http://localhost:5000/api/VendorCategory")
             .then(response => {
                 setvendor(response.data);
             })
@@ -29,7 +29,7 @@ const Vendor = () => {
 
     {/* Vender-Venue API Call */}
     useEffect(() => {
-        axios.get("http://localhost:5194/api/VendorCards")
+        axios.get("http://localhost:5000/api/VendorCards")
             .then(response => {
                 setvendorVenue(response.data);
             })

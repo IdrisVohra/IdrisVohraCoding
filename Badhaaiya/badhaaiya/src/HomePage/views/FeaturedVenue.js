@@ -11,7 +11,7 @@ const FeaturedVenue = () => {
 
     {/* Featured-Vender-Venue API Call */}
     useEffect(() => {
-        axios.get("http://localhost:5194/api/VendorCards")
+        axios.get("http://localhost:5000/api/VendorCards")
             .then(response => {
                 setFeatureVenue(response.data);
             })

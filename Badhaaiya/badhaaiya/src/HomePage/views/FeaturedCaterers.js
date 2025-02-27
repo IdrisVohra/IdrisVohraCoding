@@ -12,7 +12,7 @@ const CatererCard = () => {
 
     {/* FeaturedCaterers API Call */}
     useEffect(() => {
-        axios.get("http://localhost:5194/api/FeaturedCarterers")
+        axios.get("http://localhost:5000/api/FeaturedCarterers")
             .then(response => {
                 setFeatureCaterers(response.data);
             })

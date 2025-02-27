@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\VendorCategoryAPI.csproj": {}
+    "D:\\IdrisVohra cOding\\GIT\\Test\\Badhaaiya\\DummyAPICalls\\VendorCategoryAPI\\VendorCategoryAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\VendorCategoryAPI.csproj": {
+    "D:\\IdrisVohra cOding\\GIT\\Test\\Badhaaiya\\DummyAPICalls\\VendorCategoryAPI\\VendorCategoryAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\VendorCategoryAPI.csproj",
+        "projectUniqueName": "D:\\IdrisVohra cOding\\GIT\\Test\\Badhaaiya\\DummyAPICalls\\VendorCategoryAPI\\VendorCategoryAPI.csproj",
         "projectName": "VendorCategoryAPI",
-        "projectPath": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\VendorCategoryAPI.csproj",
+        "projectPath": "D:\\IdrisVohra cOding\\GIT\\Test\\Badhaaiya\\DummyAPICalls\\VendorCategoryAPI\\VendorCategoryAPI.csproj",
         "packagesPath": "C:\\Users\\idree\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\idree\\source\\repos\\VendorCategoryAPI\\obj\\",
+        "outputPath": "D:\\IdrisVohra cOding\\GIT\\Test\\Badhaaiya\\DummyAPICalls\\VendorCategoryAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\MicrosoftVisualStdioSDK\\NuGetPackages",
