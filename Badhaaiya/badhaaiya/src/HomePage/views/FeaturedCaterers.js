@@ -34,12 +34,12 @@ const CatererCard = () => {
                         <div className="FeaturedCaterers-div1">
                             <h3>{featurecaterers.name}</h3>
                             <div>
-                                {featurecaterers.Catogery ? (
+                                {featurecaterers.catogery ? (
                                         <CheckCircle size={16} className="FeaturedCaterers-veg-check" />
                                     ) : (
                                         <CheckCircle size={16} className="FeaturedCaterers-non-veg-check" />
                                     )}
-                                <span>{featurecaterers.Catogery ? "Veg" : "Non-Veg"}</span>
+                                <span>{featurecaterers.catogery ? "Veg" : "Non-Veg"}</span>
                             </div>
                         </div>
                         <div className="FeaturedCaterers-div2">

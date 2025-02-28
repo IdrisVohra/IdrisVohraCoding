@@ -16,7 +16,21 @@ router.get('/FeaturedCarterers', (req, res) => {
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ",
             location: "Pune",
             catogery: "Veg"
-        }
+        },
+        {
+            id: 3,
+            name: "Food Square",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ",
+            location: "Pune",
+            catogery: "Veg"
+        },
+        {
+            id: 4,
+            name: "Food Square",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ",
+            location: "Pune",
+            catogery: "Veg"
+        },
     ];
     res.json(caterers);
 });
@@ -25,6 +39,61 @@ router.get('/VendorCards', (req, res) => {
     const vendorCards = [
         {
             id: 1,
+            name: "Radisson Blu Hotel",
+            location: "Mumbai"
+        },
+        {
+            id: 2,
+            name: "Radisson Blu Hotel",
+            location: "Mumbai"
+        },
+        {
+            id: 3,
+            name: "Radisson Blu Hotel",
+            location: "Mumbai"
+        },
+        {
+            id: 4,
+            name: "Radisson Blu Hotel",
+            location: "Mumbai"
+        },
+        {
+            id: 5,
+            name: "Radisson Blu Hotel",
+            location: "Mumbai"
+        },
+        {
+            id: 6,
+            name: "Radisson Blu Hotel",
+            location: "Mumbai"
+        },
+        {
+            id: 7,
+            name: "Radisson Blu Hotel",
+            location: "Mumbai"
+        },
+        {
+            id: 8,
+            name: "Radisson Blu Hotel",
+            location: "Mumbai"
+        },
+        {
+            id: 9,
+            name: "Radisson Blu Hotel",
+            location: "Mumbai"
+        },
+        {
+            id: 10,
+            name: "Radisson Blu Hotel",
+            location: "Mumbai"
+        },
+        {
+            id: 11,
+            name: "Radisson Blu Hotel",
+            location: "Mumbai"
+        },
+        {
+            id: 12,
             name: "Radisson Blu Hotel",
             location: "Mumbai"
         },

@@ -4,6 +4,18 @@ import { useDispatch } from "react-redux";
 import { login } from "../../Redux/authSlice";
 import { useNavigate } from "react-router-dom";
 
+async function isValidInput(mobileNumber, password) 
+{
+  if (mobileNumber === "" || password === "") 
+  {
+    return false;
+  }
+  else 
+  {
+    return true;
+  }
+};
+
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [mobileNumber, setMobileNumber] = useState("");
@@ -19,13 +31,15 @@ const AuthPage = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    if (mobileNumber === "123" && password === "pp") {
+    if (isValidInput(mobileNumber, password)) 
+    {
       setIsValid(true);
       setIsLogin(true);
       dispatch(login());
       navigate("/HomePage");
     }
-    else{
+    else
+    {
       setIsValid(false);
       setIsLogin(false);
     }
