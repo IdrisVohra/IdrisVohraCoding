@@ -15,7 +15,7 @@ const projects = [
     link: "https://advance-task-manager-beryl.vercel.app/",
     category: "Web App",
     description: "Feature-rich task management application with drag & drop functionality",
-    technologies: ["React", "Node", "MongoDB"]
+    technologies: ["React"]
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const projects = [
     link: "https://budget-tracker-six-ecru.vercel.app/",
     category: "Finance App",
     description: "Real-time budget tracking with expense categorization and analytics",
-    technologies: ["React", "Node", "MongoDB"]
+    technologies: ["React"]
   }
 ];
 
