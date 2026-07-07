@@ -1,0 +1,35 @@
+.uk-text-field {
+  font-family: var(--uk-font-family);
+  font-size: var(--uk-font-size-md);
+  color: var(--uk-color-text);
+  background-color: var(--uk-color-bg);
+  border: 1px solid var(--uk-color-border);
+  border-radius: var(--uk-radius-md);
+  padding: var(--uk-space-2) var(--uk-space-3);
+  height: 36px;
+  transition: border-color var(--uk-transition-fast), box-shadow var(--uk-transition-fast);
+}
+
+.uk-text-field:hover:not(:disabled) {
+  border-color: var(--uk-color-border-strong);
+}
+
+.uk-text-field:focus-visible {
+  outline: none;
+  border-color: var(--uk-color-primary);
+  box-shadow: 0 0 0 3px var(--uk-color-focus-ring);
+}
+
+.uk-text-field:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background-color: var(--uk-color-bg-subtle);
+}
+
+.uk-text-field--error {
+  border-color: var(--uk-color-danger);
+}
+
+.uk-text-field--error:focus-visible {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.25);
+}

@@ -1,0 +1,104 @@
+.uk-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--uk-space-2);
+  font-family: var(--uk-font-family);
+  font-weight: 600;
+  border-radius: var(--uk-radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color var(--uk-transition-fast), border-color var(--uk-transition-fast),
+    box-shadow var(--uk-transition-fast);
+  white-space: nowrap;
+}
+
+.uk-button:focus-visible {
+  outline: 2px solid var(--uk-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.uk-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Sizes */
+.uk-button--sm {
+  font-size: var(--uk-font-size-sm);
+  padding: var(--uk-space-1) var(--uk-space-3);
+  height: 28px;
+}
+
+.uk-button--md {
+  font-size: var(--uk-font-size-md);
+  padding: var(--uk-space-2) var(--uk-space-4);
+  height: 36px;
+}
+
+.uk-button--lg {
+  font-size: var(--uk-font-size-lg);
+  padding: var(--uk-space-3) var(--uk-space-5);
+  height: 44px;
+}
+
+.uk-button--full-width {
+  width: 100%;
+}
+
+/* Variants */
+.uk-button--primary {
+  background-color: var(--uk-color-primary);
+  color: var(--uk-color-text-inverse);
+}
+.uk-button--primary:hover:not(:disabled) {
+  background-color: var(--uk-color-primary-hover);
+}
+.uk-button--primary:active:not(:disabled) {
+  background-color: var(--uk-color-primary-active);
+}
+
+.uk-button--secondary {
+  background-color: var(--uk-color-bg);
+  color: var(--uk-color-text);
+  border-color: var(--uk-color-border);
+}
+.uk-button--secondary:hover:not(:disabled) {
+  background-color: var(--uk-color-bg-hover);
+}
+
+.uk-button--danger {
+  background-color: var(--uk-color-danger);
+  color: var(--uk-color-text-inverse);
+}
+.uk-button--danger:hover:not(:disabled) {
+  background-color: var(--uk-color-danger-hover);
+}
+
+.uk-button--ghost {
+  background-color: transparent;
+  color: var(--uk-color-primary);
+}
+.uk-button--ghost:hover:not(:disabled) {
+  background-color: var(--uk-color-bg-hover);
+}
+
+.uk-button__spinner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: uk-spin 0.6s linear infinite;
+}
+
+.uk-button__icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+@keyframes uk-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

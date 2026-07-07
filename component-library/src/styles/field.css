@@ -1,0 +1,27 @@
+.uk-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--uk-space-1);
+  font-family: var(--uk-font-family);
+}
+
+.uk-field__label {
+  font-size: var(--uk-font-size-md);
+  font-weight: 600;
+  color: var(--uk-color-text);
+}
+
+.uk-field__required {
+  color: var(--uk-color-danger);
+  margin-left: var(--uk-space-1);
+}
+
+.uk-field__description {
+  font-size: var(--uk-font-size-sm);
+  color: var(--uk-color-text-muted);
+}
+
+.uk-field__error {
+  font-size: var(--uk-font-size-sm);
+  color: var(--uk-color-danger);
+}

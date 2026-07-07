@@ -1,0 +1,105 @@
+.uk-data-table-wrapper {
+  font-family: var(--uk-font-family);
+  width: 100%;
+  overflow-x: auto;
+}
+
+.uk-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--uk-font-size-md);
+  color: var(--uk-color-text);
+}
+
+.uk-data-table__caption {
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: var(--uk-space-2);
+}
+
+.uk-data-table th {
+  background-color: var(--uk-color-bg-subtle);
+  border-bottom: 1px solid var(--uk-color-border);
+  padding: var(--uk-space-3) var(--uk-space-4);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.uk-data-table td {
+  padding: var(--uk-space-3) var(--uk-space-4);
+  border-bottom: 1px solid var(--uk-color-border);
+}
+
+.uk-data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.uk-data-table__row--clickable {
+  cursor: pointer;
+}
+
+.uk-data-table__row--clickable:hover {
+  background-color: var(--uk-color-bg-hover);
+}
+
+.uk-data-table__sort-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--uk-space-1);
+  background: none;
+  border: none;
+  font: inherit;
+  font-weight: 600;
+  color: var(--uk-color-text);
+  cursor: pointer;
+  padding: 0;
+}
+
+.uk-data-table__sort-button:focus-visible {
+  outline: 2px solid var(--uk-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.uk-data-table__sort-icon {
+  font-size: 10px;
+  color: var(--uk-color-text-muted);
+}
+
+.uk-data-table__status {
+  text-align: center;
+  color: var(--uk-color-text-muted);
+  padding: var(--uk-space-6);
+}
+
+.uk-data-table__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--uk-space-3);
+  font-size: var(--uk-font-size-sm);
+  color: var(--uk-color-text-muted);
+}
+
+.uk-data-table__pagination-controls {
+  display: flex;
+  gap: var(--uk-space-2);
+}
+
+.uk-data-table__pagination-controls button {
+  font-family: var(--uk-font-family);
+  font-size: var(--uk-font-size-sm);
+  padding: var(--uk-space-1) var(--uk-space-3);
+  border: 1px solid var(--uk-color-border);
+  border-radius: var(--uk-radius-sm);
+  background-color: var(--uk-color-bg);
+  cursor: pointer;
+}
+
+.uk-data-table__pagination-controls button:hover:not(:disabled) {
+  background-color: var(--uk-color-bg-hover);
+}
+
+.uk-data-table__pagination-controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

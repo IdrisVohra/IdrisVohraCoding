@@ -1,0 +1,47 @@
+.uk-radio-group {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.uk-radio-group__options {
+  display: flex;
+  gap: var(--uk-space-2);
+}
+
+.uk-radio-group__options--vertical {
+  flex-direction: column;
+}
+
+.uk-radio-group__options--horizontal {
+  flex-direction: row;
+  gap: var(--uk-space-4);
+}
+
+.uk-radio-group__option {
+  display: flex;
+  align-items: center;
+  gap: var(--uk-space-2);
+}
+
+.uk-radio-group__option-label {
+  font-size: var(--uk-font-size-md);
+  color: var(--uk-color-text);
+  cursor: pointer;
+}
+
+.uk-radio {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--uk-color-primary);
+  cursor: pointer;
+}
+
+.uk-radio:focus-visible {
+  outline: 2px solid var(--uk-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.uk-radio:disabled {
+  cursor: not-allowed;
+}
