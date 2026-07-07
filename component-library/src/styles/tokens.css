@@ -1,45 +1,218 @@
-:root {
-  /* Color */
-  --uk-color-primary: #2563eb;
-  --uk-color-primary-hover: #1d4ed8;
-  --uk-color-primary-active: #1e40af;
-  --uk-color-danger: #dc2626;
-  --uk-color-danger-hover: #b91c1c;
-  --uk-color-text: #111827;
-  --uk-color-text-muted: #6b7280;
-  --uk-color-text-inverse: #ffffff;
-  --uk-color-border: #d1d5db;
-  --uk-color-border-strong: #9ca3af;
-  --uk-color-bg: #ffffff;
-  --uk-color-bg-subtle: #f9fafb;
-  --uk-color-bg-hover: #f3f4f6;
-  --uk-color-overlay: rgba(17, 24, 39, 0.5);
-  --uk-color-focus-ring: #93c5fd;
+/* ==========================================================================
+   UI Kit design tokens
+   Static tokens (spacing, radius, typography, motion) never change.
+   Color tokens are re-assigned per theme ([data-theme]) and per accent
+   ([data-accent]), so components never hard-code a color — only a role.
+   ========================================================================== */
 
-  /* Spacing */
+:root {
+  /* Spacing scale */
   --uk-space-1: 4px;
   --uk-space-2: 8px;
   --uk-space-3: 12px;
   --uk-space-4: 16px;
   --uk-space-5: 24px;
   --uk-space-6: 32px;
+  --uk-space-7: 48px;
+  --uk-space-8: 64px;
 
-  /* Radius */
-  --uk-radius-sm: 4px;
-  --uk-radius-md: 6px;
-  --uk-radius-lg: 10px;
+  /* Radius scale */
+  --uk-radius-sm: 6px;
+  --uk-radius-md: 10px;
+  --uk-radius-lg: 14px;
+  --uk-radius-xl: 20px;
+  --uk-radius-full: 999px;
 
   /* Typography */
-  --uk-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  --uk-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
+  --uk-font-family-mono: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+  --uk-font-size-xs: 12px;
   --uk-font-size-sm: 13px;
   --uk-font-size-md: 14px;
   --uk-font-size-lg: 16px;
-
-  /* Shadow */
-  --uk-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --uk-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --uk-font-size-xl: 20px;
+  --uk-font-size-2xl: 26px;
+  --uk-line-height-tight: 1.25;
+  --uk-line-height-normal: 1.5;
 
   /* Motion */
-  --uk-transition-fast: 120ms ease;
+  --uk-transition-fast: 140ms cubic-bezier(0.4, 0, 0.2, 1);
+  --uk-transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --uk-transition-spring: 260ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Accent presets — override just the brand hue. Applied via [data-accent].
+   -------------------------------------------------------------------------- */
+
+:root,
+[data-accent="blue"] {
+  --uk-accent-h: 221;
+  --uk-accent-s: 83%;
+}
+
+[data-accent="violet"] {
+  --uk-accent-h: 262;
+  --uk-accent-s: 83%;
+}
+
+[data-accent="emerald"] {
+  --uk-accent-h: 156;
+  --uk-accent-s: 72%;
+}
+
+[data-accent="rose"] {
+  --uk-accent-h: 347;
+  --uk-accent-s: 83%;
+}
+
+[data-accent="amber"] {
+  --uk-accent-h: 38;
+  --uk-accent-s: 92%;
+}
+
+/* --------------------------------------------------------------------------
+   Light theme (default)
+   -------------------------------------------------------------------------- */
+
+:root,
+[data-theme="light"] {
+  --uk-color-primary: hsl(var(--uk-accent-h) var(--uk-accent-s) 52%);
+  --uk-color-primary-hover: hsl(var(--uk-accent-h) var(--uk-accent-s) 46%);
+  --uk-color-primary-active: hsl(var(--uk-accent-h) var(--uk-accent-s) 40%);
+  --uk-color-primary-soft: hsl(var(--uk-accent-h) var(--uk-accent-s) 96%);
+  --uk-gradient-primary: linear-gradient(
+    135deg,
+    hsl(var(--uk-accent-h) var(--uk-accent-s) 58%),
+    hsl(calc(var(--uk-accent-h) + 24) var(--uk-accent-s) 48%)
+  );
+
+  --uk-color-success: #16a34a;
+  --uk-color-success-soft: #ecfdf3;
+  --uk-color-warning: #d97706;
+  --uk-color-warning-soft: #fffbeb;
+  --uk-color-danger: #e11d48;
+  --uk-color-danger-hover: #be123c;
+  --uk-color-danger-soft: #fef1f4;
+  --uk-color-info: #0ea5e9;
+  --uk-color-info-soft: #f0f9ff;
+
+  --uk-color-text: #0f1424;
+  --uk-color-text-muted: #64748b;
+  --uk-color-text-subtle: #94a3b8;
+  --uk-color-text-inverse: #ffffff;
+
+  --uk-color-border: #e2e8f0;
+  --uk-color-border-strong: #cbd5e1;
+  --uk-color-focus-ring: hsl(var(--uk-accent-h) var(--uk-accent-s) 52% / 0.35);
+  --uk-color-danger-ring: rgba(225, 29, 72, 0.22);
+
+  --uk-color-bg: #ffffff;
+  --uk-color-bg-canvas: #f8fafc;
+  --uk-color-bg-subtle: #f1f5f9;
+  --uk-color-bg-hover: #f1f5f9;
+  --uk-color-bg-elevated: #ffffff;
+  --uk-color-overlay: rgba(15, 20, 36, 0.48);
+
+  --uk-shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --uk-shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --uk-shadow-lg: 0 12px 28px -6px rgba(15, 23, 42, 0.14), 0 4px 10px -4px rgba(15, 23, 42, 0.08);
+  --uk-shadow-glow: 0 0 0 1px hsl(var(--uk-accent-h) var(--uk-accent-s) 52% / 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   Dark theme
+   -------------------------------------------------------------------------- */
+
+[data-theme="dark"] {
+  --uk-color-primary: hsl(var(--uk-accent-h) 90% 68%);
+  --uk-color-primary-hover: hsl(var(--uk-accent-h) 90% 74%);
+  --uk-color-primary-active: hsl(var(--uk-accent-h) 90% 60%);
+  --uk-color-primary-soft: hsl(var(--uk-accent-h) 40% 20%);
+  --uk-gradient-primary: linear-gradient(
+    135deg,
+    hsl(var(--uk-accent-h) 90% 68%),
+    hsl(calc(var(--uk-accent-h) + 24) 90% 58%)
+  );
+
+  --uk-color-success: #4ade80;
+  --uk-color-success-soft: rgba(74, 222, 128, 0.12);
+  --uk-color-warning: #fbbf24;
+  --uk-color-warning-soft: rgba(251, 191, 36, 0.12);
+  --uk-color-danger: #fb7185;
+  --uk-color-danger-hover: #f43f5e;
+  --uk-color-danger-soft: rgba(251, 113, 133, 0.12);
+  --uk-color-info: #38bdf8;
+  --uk-color-info-soft: rgba(56, 189, 248, 0.12);
+
+  --uk-color-text: #f1f5f9;
+  --uk-color-text-muted: #94a3b8;
+  --uk-color-text-subtle: #64748b;
+  --uk-color-text-inverse: #0b0f1a;
+
+  --uk-color-border: #263041;
+  --uk-color-border-strong: #364256;
+  --uk-color-focus-ring: hsl(var(--uk-accent-h) 90% 68% / 0.4);
+  --uk-color-danger-ring: rgba(251, 113, 133, 0.28);
+
+  --uk-color-bg: #121826;
+  --uk-color-bg-canvas: #0b0f1a;
+  --uk-color-bg-subtle: #1a2231;
+  --uk-color-bg-hover: #1e293b;
+  --uk-color-bg-elevated: #171f2e;
+  --uk-color-overlay: rgba(3, 6, 14, 0.65);
+
+  --uk-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --uk-shadow-md: 0 4px 16px -2px rgba(0, 0, 0, 0.45), 0 2px 6px -2px rgba(0, 0, 0, 0.3);
+  --uk-shadow-lg: 0 20px 40px -8px rgba(0, 0, 0, 0.55), 0 8px 16px -6px rgba(0, 0, 0, 0.35);
+  --uk-shadow-glow: 0 0 0 1px hsl(var(--uk-accent-h) 90% 68% / 0.18);
+}
+
+/* System preference fallback when no explicit [data-theme] is set. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --uk-color-primary: hsl(var(--uk-accent-h) 90% 68%);
+    --uk-color-primary-hover: hsl(var(--uk-accent-h) 90% 74%);
+    --uk-color-primary-active: hsl(var(--uk-accent-h) 90% 60%);
+    --uk-color-primary-soft: hsl(var(--uk-accent-h) 40% 20%);
+    --uk-gradient-primary: linear-gradient(
+      135deg,
+      hsl(var(--uk-accent-h) 90% 68%),
+      hsl(calc(var(--uk-accent-h) + 24) 90% 58%)
+    );
+    --uk-color-success: #4ade80;
+    --uk-color-success-soft: rgba(74, 222, 128, 0.12);
+    --uk-color-warning: #fbbf24;
+    --uk-color-warning-soft: rgba(251, 191, 36, 0.12);
+    --uk-color-danger: #fb7185;
+    --uk-color-danger-hover: #f43f5e;
+    --uk-color-danger-soft: rgba(251, 113, 133, 0.12);
+    --uk-color-info: #38bdf8;
+    --uk-color-info-soft: rgba(56, 189, 248, 0.12);
+    --uk-color-text: #f1f5f9;
+    --uk-color-text-muted: #94a3b8;
+    --uk-color-text-subtle: #64748b;
+    --uk-color-text-inverse: #0b0f1a;
+    --uk-color-border: #263041;
+    --uk-color-border-strong: #364256;
+    --uk-color-focus-ring: hsl(var(--uk-accent-h) 90% 68% / 0.4);
+    --uk-color-danger-ring: rgba(251, 113, 133, 0.28);
+    --uk-color-bg: #121826;
+    --uk-color-bg-canvas: #0b0f1a;
+    --uk-color-bg-subtle: #1a2231;
+    --uk-color-bg-hover: #1e293b;
+    --uk-color-bg-elevated: #171f2e;
+    --uk-color-overlay: rgba(3, 6, 14, 0.65);
+    --uk-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --uk-shadow-md: 0 4px 16px -2px rgba(0, 0, 0, 0.45), 0 2px 6px -2px rgba(0, 0, 0, 0.3);
+    --uk-shadow-lg: 0 20px 40px -8px rgba(0, 0, 0, 0.55), 0 8px 16px -6px rgba(0, 0, 0, 0.35);
+    --uk-shadow-glow: 0 0 0 1px hsl(var(--uk-accent-h) 90% 68% / 0.18);
+  }
+}
+
+body {
+  background-color: var(--uk-color-bg-canvas);
+  color: var(--uk-color-text);
+  transition: background-color var(--uk-transition-base), color var(--uk-transition-base);
 }

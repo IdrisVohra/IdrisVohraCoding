@@ -1,0 +1,30 @@
+.uk-spinner {
+  display: inline-block;
+  border-radius: 50%;
+  border: 2.5px solid var(--uk-color-border);
+  border-top-color: var(--uk-color-primary);
+  animation: uk-spinner-rotate 0.7s linear infinite;
+}
+
+.uk-spinner--sm {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}
+
+.uk-spinner--md {
+  width: 24px;
+  height: 24px;
+}
+
+.uk-spinner--lg {
+  width: 36px;
+  height: 36px;
+  border-width: 3px;
+}
+
+@keyframes uk-spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -6,8 +6,17 @@
   border: 1px solid var(--uk-color-border);
   border-radius: var(--uk-radius-md);
   padding: var(--uk-space-2) var(--uk-space-3);
-  height: 36px;
+  height: 38px;
+  box-shadow: var(--uk-shadow-sm);
   transition: border-color var(--uk-transition-fast), box-shadow var(--uk-transition-fast);
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: calc(100% - 18px) center, calc(100% - 13px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  color-scheme: light dark;
+  padding-right: var(--uk-space-6);
 }
 
 .uk-select:hover:not(:disabled) {
@@ -17,15 +26,20 @@
 .uk-select:focus-visible {
   outline: none;
   border-color: var(--uk-color-primary);
-  box-shadow: 0 0 0 3px var(--uk-color-focus-ring);
+  box-shadow: 0 0 0 4px var(--uk-color-focus-ring);
 }
 
 .uk-select:disabled {
   cursor: not-allowed;
   opacity: 0.6;
   background-color: var(--uk-color-bg-subtle);
+  box-shadow: none;
 }
 
 .uk-select--error {
   border-color: var(--uk-color-danger);
+}
+
+.uk-select--error:focus-visible {
+  box-shadow: 0 0 0 4px var(--uk-color-danger-ring);
 }

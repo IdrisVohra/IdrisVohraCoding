@@ -1,0 +1,105 @@
+.uk-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--uk-space-3);
+  padding: var(--uk-space-4);
+  border-radius: var(--uk-radius-md);
+  border: 1px solid transparent;
+  font-family: var(--uk-font-family);
+  font-size: var(--uk-font-size-sm);
+  line-height: var(--uk-line-height-normal);
+  animation: uk-alert-in var(--uk-transition-base);
+}
+
+.uk-alert__icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.uk-alert__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.uk-alert__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.uk-alert__title {
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+
+.uk-alert__message {
+  color: inherit;
+}
+
+.uk-alert__dismiss {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.6;
+  padding: 0 var(--uk-space-1);
+  border-radius: var(--uk-radius-sm);
+  transition: opacity var(--uk-transition-fast);
+}
+
+.uk-alert__dismiss:hover {
+  opacity: 1;
+}
+
+.uk-alert__dismiss:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.uk-alert--info {
+  background-color: var(--uk-color-info-soft);
+  border-color: color-mix(in srgb, var(--uk-color-info) 30%, transparent);
+  color: var(--uk-color-info);
+}
+
+.uk-alert--success {
+  background-color: var(--uk-color-success-soft);
+  border-color: color-mix(in srgb, var(--uk-color-success) 30%, transparent);
+  color: var(--uk-color-success);
+}
+
+.uk-alert--warning {
+  background-color: var(--uk-color-warning-soft);
+  border-color: color-mix(in srgb, var(--uk-color-warning) 30%, transparent);
+  color: var(--uk-color-warning);
+}
+
+.uk-alert--danger {
+  background-color: var(--uk-color-danger-soft);
+  border-color: color-mix(in srgb, var(--uk-color-danger) 30%, transparent);
+  color: var(--uk-color-danger);
+}
+
+.uk-alert--info .uk-alert__title,
+.uk-alert--success .uk-alert__title,
+.uk-alert--warning .uk-alert__title,
+.uk-alert--danger .uk-alert__title {
+  color: var(--uk-color-text);
+}
+
+.uk-alert--info .uk-alert__message,
+.uk-alert--success .uk-alert__message,
+.uk-alert--warning .uk-alert__message,
+.uk-alert--danger .uk-alert__message {
+  color: var(--uk-color-text-muted);
+}
+
+@keyframes uk-alert-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}

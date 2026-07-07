@@ -5,11 +5,13 @@
   gap: var(--uk-space-2);
   font-family: var(--uk-font-family);
   font-weight: 600;
+  letter-spacing: -0.01em;
   border-radius: var(--uk-radius-md);
   border: 1px solid transparent;
   cursor: pointer;
-  transition: background-color var(--uk-transition-fast), border-color var(--uk-transition-fast),
-    box-shadow var(--uk-transition-fast);
+  transition: background var(--uk-transition-fast), border-color var(--uk-transition-fast),
+    box-shadow var(--uk-transition-fast), transform var(--uk-transition-fast),
+    color var(--uk-transition-fast);
   white-space: nowrap;
 }
 
@@ -20,26 +22,31 @@
 
 .uk-button:disabled {
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: 0.55;
+  transform: none !important;
+}
+
+.uk-button:active:not(:disabled) {
+  transform: translateY(1px) scale(0.98);
 }
 
 /* Sizes */
 .uk-button--sm {
   font-size: var(--uk-font-size-sm);
   padding: var(--uk-space-1) var(--uk-space-3);
-  height: 28px;
+  height: 30px;
 }
 
 .uk-button--md {
   font-size: var(--uk-font-size-md);
   padding: var(--uk-space-2) var(--uk-space-4);
-  height: 36px;
+  height: 38px;
 }
 
 .uk-button--lg {
   font-size: var(--uk-font-size-lg);
   padding: var(--uk-space-3) var(--uk-space-5);
-  height: 44px;
+  height: 46px;
 }
 
 .uk-button--full-width {
@@ -48,31 +55,38 @@
 
 /* Variants */
 .uk-button--primary {
-  background-color: var(--uk-color-primary);
+  background: var(--uk-gradient-primary);
   color: var(--uk-color-text-inverse);
+  box-shadow: var(--uk-shadow-sm), var(--uk-shadow-glow);
 }
 .uk-button--primary:hover:not(:disabled) {
-  background-color: var(--uk-color-primary-hover);
+  box-shadow: var(--uk-shadow-md), var(--uk-shadow-glow);
+  transform: translateY(-1px);
 }
 .uk-button--primary:active:not(:disabled) {
-  background-color: var(--uk-color-primary-active);
+  box-shadow: var(--uk-shadow-sm);
 }
 
 .uk-button--secondary {
   background-color: var(--uk-color-bg);
   color: var(--uk-color-text);
   border-color: var(--uk-color-border);
+  box-shadow: var(--uk-shadow-sm);
 }
 .uk-button--secondary:hover:not(:disabled) {
   background-color: var(--uk-color-bg-hover);
+  border-color: var(--uk-color-border-strong);
 }
 
 .uk-button--danger {
   background-color: var(--uk-color-danger);
   color: var(--uk-color-text-inverse);
+  box-shadow: var(--uk-shadow-sm);
 }
 .uk-button--danger:hover:not(:disabled) {
   background-color: var(--uk-color-danger-hover);
+  box-shadow: var(--uk-shadow-md);
+  transform: translateY(-1px);
 }
 
 .uk-button--ghost {
@@ -80,7 +94,7 @@
   color: var(--uk-color-primary);
 }
 .uk-button--ghost:hover:not(:disabled) {
-  background-color: var(--uk-color-bg-hover);
+  background-color: var(--uk-color-primary-soft);
 }
 
 .uk-button__spinner {

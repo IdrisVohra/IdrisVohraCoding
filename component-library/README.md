@@ -6,11 +6,38 @@ A reusable, documented React component library — forms, data tables, and modal
 
 | Category | Components |
 | --- | --- |
-| Forms | `Button`, `TextField`, `Textarea`, `Select`, `Checkbox`, `RadioGroup`, `Form`, `FormActions` |
-| Data display | `DataTable` (sortable columns, pagination, loading/empty states) |
+| Forms | `Button`, `TextField`, `Textarea`, `Select`, `Checkbox`, `RadioGroup`, `Switch`, `Form`, `FormActions` |
+| Data display | `DataTable` (sortable columns, pagination, loading/empty states), `Card`, `Badge`, `Avatar`, `Tabs` |
+| Feedback | `Alert`, `Spinner`, `Tooltip` |
 | Overlays | `Modal` (focus trap, ESC/overlay close, portal-rendered) |
+| Theming | `ThemeProvider`, `useTheme`, `ThemeToggle` |
 
 Every component is written in TypeScript with exported prop types, ships its own scoped CSS (no CSS-in-JS runtime dependency), and has an accompanying Storybook story and Jest/RTL test suite.
+
+## Theming
+
+The library ships a full light/dark theme plus 5 accent-color presets (blue, violet, emerald, rose, amber), all driven by CSS custom properties — no JS re-render or CSS-in-JS runtime involved.
+
+```tsx
+import { ThemeProvider, ThemeToggle } from "@yourorg/ui-kit";
+import "@yourorg/ui-kit/styles.css";
+
+function App() {
+  return (
+    <ThemeProvider defaultTheme="system" defaultAccent="violet">
+      <ThemeToggle />
+      {/* rest of your app */}
+    </ThemeProvider>
+  );
+}
+```
+
+- `defaultTheme` accepts `"light" | "dark" | "system"` (system follows the OS preference and updates live).
+- `defaultAccent` accepts `"blue" | "violet" | "emerald" | "rose" | "amber"`.
+- The user's choice persists to `localStorage` automatically; pass `storageKey={false}` to disable that.
+- Call `useTheme()` anywhere inside the provider to read/set `theme`, `resolvedTheme`, and `accent` programmatically.
+- `ThemeProvider` scopes `data-theme`/`data-accent` to a wrapper `div` (via `display: contents`, so it doesn't affect layout) rather than the document root — safe to drop into a single section of a larger app without hijacking its theme.
+- In Storybook, use the theme/accent toolbar icons (top toolbar) to preview every component against all 10 theme × accent combinations.
 
 ## Getting started
 
@@ -33,7 +60,7 @@ npm install
 After `npm run build`, `dist/` contains everything needed to consume the library:
 
 ```tsx
-import { Button, TextField, Modal, DataTable } from "@yourorg/ui-kit";
+import { Button, TextField, Modal, DataTable, ThemeProvider } from "@yourorg/ui-kit";
 import "@yourorg/ui-kit/styles.css";
 ```
 
@@ -69,25 +96,37 @@ vercel
 ```
 src/
   components/
-    Button/        Button.tsx, Button.css, Button.stories.tsx, Button.test.tsx, index.ts
+    Button/         Button.tsx, Button.css, Button.stories.tsx, Button.test.tsx, index.ts
     TextField/
     Textarea/
     Select/
     Checkbox/
     RadioGroup/
+    Switch/
     Form/
     Modal/
     DataTable/
+    Card/
+    Badge/
+    Avatar/
+    Spinner/
+    Tabs/
+    Tooltip/
+    Alert/
+    ThemeToggle/
+  theme/
+    ThemeProvider.tsx  Theme context, mode/accent state, persistence
+    theme.css
   styles/
-    tokens.css      Design tokens (colors, spacing, radius, typography, shadows) as CSS variables
-    field.css        Shared label/description/error styles for form fields
-  index.ts           Public package entry point (barrel export)
-.storybook/           Storybook configuration
+    tokens.css       Design tokens: light/dark palettes, accent presets, spacing, radius, shadows, motion
+    field.css         Shared label/description/error styles for form fields
+  index.ts            Public package entry point (barrel export)
+.storybook/            Storybook configuration (includes the theme/accent toolbar)
 ```
 
 ## Design tokens
 
-All visual styling is driven by CSS custom properties defined in `src/styles/tokens.css` (`--uk-color-*`, `--uk-space-*`, `--uk-radius-*`, etc.). Override them in a parent scope to re-theme the whole library without touching component code.
+All visual styling is driven by CSS custom properties defined in `src/styles/tokens.css` (`--uk-color-*`, `--uk-space-*`, `--uk-radius-*`, `--uk-shadow-*`, `--uk-gradient-primary`, etc.). Static tokens (spacing, radius, motion) are theme-independent; color tokens are re-assigned per `[data-theme]` and `[data-accent]` combination. Override any of them in a parent scope to customize the look without touching component code.
 
 ## Testing philosophy
 

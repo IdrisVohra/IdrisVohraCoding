@@ -7,7 +7,12 @@
   border-radius: var(--uk-radius-md);
   padding: var(--uk-space-2) var(--uk-space-3);
   resize: vertical;
+  box-shadow: var(--uk-shadow-sm);
   transition: border-color var(--uk-transition-fast), box-shadow var(--uk-transition-fast);
+}
+
+.uk-textarea::placeholder {
+  color: var(--uk-color-text-subtle);
 }
 
 .uk-textarea:hover:not(:disabled) {
@@ -17,15 +22,20 @@
 .uk-textarea:focus-visible {
   outline: none;
   border-color: var(--uk-color-primary);
-  box-shadow: 0 0 0 3px var(--uk-color-focus-ring);
+  box-shadow: 0 0 0 4px var(--uk-color-focus-ring);
 }
 
 .uk-textarea:disabled {
   cursor: not-allowed;
   opacity: 0.6;
   background-color: var(--uk-color-bg-subtle);
+  box-shadow: none;
 }
 
 .uk-textarea--error {
   border-color: var(--uk-color-danger);
+}
+
+.uk-textarea--error:focus-visible {
+  box-shadow: 0 0 0 4px var(--uk-color-danger-ring);
 }

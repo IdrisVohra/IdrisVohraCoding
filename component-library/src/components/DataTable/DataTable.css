@@ -2,6 +2,9 @@
   font-family: var(--uk-font-family);
   width: 100%;
   overflow-x: auto;
+  border: 1px solid var(--uk-color-border);
+  border-radius: var(--uk-radius-lg);
+  box-shadow: var(--uk-shadow-sm);
 }
 
 .uk-data-table {
@@ -22,7 +25,19 @@
   border-bottom: 1px solid var(--uk-color-border);
   padding: var(--uk-space-3) var(--uk-space-4);
   font-weight: 600;
+  font-size: var(--uk-font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--uk-color-text-muted);
   white-space: nowrap;
+}
+
+.uk-data-table thead tr th:first-child {
+  border-top-left-radius: var(--uk-radius-lg);
+}
+
+.uk-data-table thead tr th:last-child {
+  border-top-right-radius: var(--uk-radius-lg);
 }
 
 .uk-data-table td {
@@ -34,8 +49,17 @@
   border-bottom: none;
 }
 
+.uk-data-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: var(--uk-radius-lg);
+}
+
+.uk-data-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: var(--uk-radius-lg);
+}
+
 .uk-data-table__row--clickable {
   cursor: pointer;
+  transition: background-color var(--uk-transition-fast);
 }
 
 .uk-data-table__row--clickable:hover {
@@ -50,9 +74,16 @@
   border: none;
   font: inherit;
   font-weight: 600;
-  color: var(--uk-color-text);
+  text-transform: inherit;
+  letter-spacing: inherit;
+  color: inherit;
   cursor: pointer;
   padding: 0;
+  transition: color var(--uk-transition-fast);
+}
+
+.uk-data-table__sort-button:hover {
+  color: var(--uk-color-primary);
 }
 
 .uk-data-table__sort-button:focus-visible {
@@ -75,9 +106,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: var(--uk-space-3);
+  padding: var(--uk-space-3) var(--uk-space-4);
   font-size: var(--uk-font-size-sm);
   color: var(--uk-color-text-muted);
+  border-top: 1px solid var(--uk-color-border);
+  background-color: var(--uk-color-bg-subtle);
+  border-bottom-left-radius: var(--uk-radius-lg);
+  border-bottom-right-radius: var(--uk-radius-lg);
 }
 
 .uk-data-table__pagination-controls {

@@ -31,10 +31,44 @@
 }
 
 .uk-radio {
-  width: 16px;
-  height: 16px;
-  accent-color: var(--uk-color-primary);
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--uk-color-border-strong);
+  background-color: var(--uk-color-bg);
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--uk-transition-fast), box-shadow var(--uk-transition-fast),
+    transform var(--uk-transition-fast);
+}
+
+.uk-radio::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--uk-gradient-primary);
+  transform: scale(0);
+  transition: transform var(--uk-transition-spring);
+}
+
+.uk-radio:checked {
+  border-color: var(--uk-color-primary);
+}
+
+.uk-radio:checked::after {
+  transform: scale(1);
+}
+
+.uk-radio:hover:not(:disabled) {
+  border-color: var(--uk-color-primary);
+}
+
+.uk-radio:active:not(:disabled) {
+  transform: scale(0.9);
 }
 
 .uk-radio:focus-visible {
@@ -44,4 +78,5 @@
 
 .uk-radio:disabled {
   cursor: not-allowed;
+  opacity: 0.5;
 }
