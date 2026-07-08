@@ -1,0 +1,27 @@
+<section class="budget-progress">
+  <div class="budget-progress__head">
+    <div>
+      <h3>Monthly Budget</h3>
+      <p>Set a target and track how close you are to it.</p>
+    </div>
+    <label class="budget-progress__input">
+      <span>$</span>
+      <input type="number" [formControl]="budgetControl" min="0" step="1" />
+    </label>
+  </div>
+
+  <div class="budget-progress__bar">
+    <div class="budget-progress__fill" [class]="statusClass" [style.width.%]="store.budgetProgress()"></div>
+  </div>
+
+  <div class="budget-progress__meta">
+    <span>{{ store.totalExpenses() | currency }} spent of {{ store.budget() | currency }}</span>
+    <span [class]="'budget-progress__remaining budget-progress__remaining--' + statusClass">
+      @if (store.budgetRemaining() >= 0) {
+        {{ store.budgetRemaining() | currency }} remaining
+      } @else {
+        {{ store.budgetRemaining() * -1 | currency }} over budget
+      }
+    </span>
+  </div>
+</section>

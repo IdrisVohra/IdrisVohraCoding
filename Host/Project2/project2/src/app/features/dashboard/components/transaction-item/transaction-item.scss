@@ -1,0 +1,111 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.transaction-item {
+  @include card;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1.6rem 1.8rem;
+  transition: box-shadow $transition-base;
+  animation: fade-in 0.25s ease;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+
+  &__dot {
+    @include flex-center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
+    color: #fff;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+
+    h4 {
+      font-size: 1.6rem;
+      color: $color-ink;
+      word-break: break-word;
+    }
+  }
+
+  &__edit-input {
+    width: 100%;
+    height: 3.6rem;
+    border-radius: $radius-sm;
+    border: 1.5px solid $color-primary-start;
+    padding: 0 1.2rem;
+    font-size: 1.5rem;
+    font-family: $font-body;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.4rem;
+  }
+
+  &__amount {
+    font-size: 1.6rem;
+    font-weight: 700;
+    white-space: nowrap;
+
+    &.income {
+      color: $color-success-dark;
+    }
+
+    &.expense {
+      color: $color-danger-dark;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 0.6rem;
+    flex-shrink: 0;
+
+    button {
+      width: 3.4rem;
+      height: 3.4rem;
+      border-radius: 50%;
+      border: none;
+      background: $color-bg-soft;
+      color: $color-muted;
+      cursor: pointer;
+      @include flex-center;
+      transition: background $transition-fast, color $transition-fast;
+
+      &:hover {
+        background: $color-primary-start;
+        color: #fff;
+      }
+
+      &.danger:hover {
+        background: $color-danger;
+      }
+    }
+  }
+}
+
+.tag {
+  display: inline-flex;
+  padding: 0.4rem 1rem;
+  border-radius: $radius-pill;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  background: $color-bg-soft;
+  color: $color-ink;
+}
+
+.date {
+  font-size: 1.2rem;
+  color: $color-muted;
+}

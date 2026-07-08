@@ -1,0 +1,99 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.budget-progress {
+  @include card;
+  padding: 2.4rem;
+  margin-bottom: 2.4rem;
+
+  &__head {
+    @include flex-between;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+    margin-bottom: 1.8rem;
+
+    h3 {
+      font-size: 1.7rem;
+      margin-bottom: 0.4rem;
+    }
+
+    p {
+      font-size: 1.3rem;
+      color: $color-muted;
+    }
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: $color-bg-soft;
+    border: 1.5px solid $color-border;
+    border-radius: $radius-pill;
+    padding: 1rem 1.6rem;
+
+    span {
+      color: $color-muted;
+      font-weight: 600;
+    }
+
+    input {
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $color-ink;
+      width: 10rem;
+    }
+  }
+
+  &__bar {
+    height: 1.4rem;
+    border-radius: $radius-pill;
+    background: $color-bg-soft;
+    overflow: hidden;
+  }
+
+  &__fill {
+    height: 100%;
+    border-radius: $radius-pill;
+    transition: width $transition-base, background $transition-base;
+
+    &.success {
+      background: linear-gradient(90deg, $color-success, $color-success-dark);
+    }
+
+    &.warning {
+      background: linear-gradient(90deg, $color-warning, $color-warning-dark);
+    }
+
+    &.danger {
+      background: linear-gradient(90deg, $color-danger, $color-danger-dark);
+    }
+  }
+
+  &__meta {
+    @include flex-between;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+    font-size: 1.3rem;
+    color: $color-muted;
+    font-weight: 600;
+  }
+
+  &__remaining {
+    &--success {
+      color: $color-success-dark;
+    }
+
+    &--warning {
+      color: $color-warning-dark;
+    }
+
+    &--danger {
+      color: $color-danger-dark;
+    }
+  }
+}

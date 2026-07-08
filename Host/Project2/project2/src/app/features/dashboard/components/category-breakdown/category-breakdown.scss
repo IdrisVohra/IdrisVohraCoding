@@ -1,0 +1,115 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.breakdown {
+  @include card;
+  padding: 2.4rem;
+  margin-bottom: 2.4rem;
+
+  &__head {
+    @include flex-between;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-bottom: 1.8rem;
+
+    h3 {
+      font-size: 1.7rem;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    gap: 0.6rem;
+    background: $color-bg-soft;
+    padding: 0.4rem;
+    border-radius: $radius-pill;
+
+    button {
+      padding: 0.8rem 1.6rem;
+      border-radius: $radius-pill;
+      border: none;
+      background: transparent;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: $color-muted;
+      cursor: pointer;
+      transition: all $transition-fast;
+
+      &.active {
+        background: $gradient-primary;
+        color: #fff;
+        box-shadow: $shadow-sm;
+      }
+    }
+  }
+
+  &__empty {
+    text-align: center;
+    color: $color-muted;
+    padding: 2rem 0;
+    font-size: 1.4rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+}
+
+.breakdown-row {
+  display: grid;
+  grid-template-columns: 3.6rem 10rem 1fr 8rem 5rem;
+  align-items: center;
+  gap: 1.2rem;
+
+  @include respond($bp-sm) {
+    grid-template-columns: 3.2rem 8rem 1fr 6.5rem;
+
+    &__pct {
+      display: none;
+    }
+  }
+
+  &__icon {
+    @include flex-center;
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 1rem;
+    color: #fff;
+    font-size: 1.4rem;
+  }
+
+  &__name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: $color-ink;
+    text-transform: capitalize;
+  }
+
+  &__bar {
+    height: 1rem;
+    border-radius: $radius-pill;
+    background: $color-bg-soft;
+    overflow: hidden;
+  }
+
+  &__fill {
+    height: 100%;
+    border-radius: $radius-pill;
+    transition: width $transition-base;
+  }
+
+  &__amount {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $color-ink;
+    text-align: right;
+  }
+
+  &__pct {
+    font-size: 1.3rem;
+    color: $color-muted;
+    text-align: right;
+  }
+}

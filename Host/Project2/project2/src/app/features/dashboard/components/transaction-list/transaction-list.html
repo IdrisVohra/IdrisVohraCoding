@@ -1,0 +1,34 @@
+<div class="transaction-list">
+  <div class="transaction-list__header">
+    <h3>Recent Transactions</h3>
+    <span>{{ store.filteredTransactions().length }} found</span>
+  </div>
+
+  @if (store.filteredTransactions().length > 0) {
+    <div class="transaction-list__items">
+      @for (transaction of store.filteredTransactions(); track transaction.id) {
+        <app-transaction-item
+          [transaction]="transaction"
+          [editingId]="editingId()"
+          (startEdit)="startEdit($event)"
+          (saveEdit)="saveEdit($event)"
+          (remove)="askDelete($event)"
+        />
+      }
+    </div>
+  } @else {
+    <div class="transaction-list__empty">
+      <i class="fa-solid fa-receipt"></i>
+      <p>No transactions yet. Add your first one above!</p>
+    </div>
+  }
+</div>
+
+<app-confirm-dialog
+  [open]="pendingDeleteId() !== null"
+  dialogTitle="Delete this transaction?"
+  message="This will permanently remove the transaction. This action cannot be undone."
+  confirmLabel="Delete"
+  (confirm)="confirmDelete()"
+  (cancel)="pendingDeleteId.set(null)"
+/>

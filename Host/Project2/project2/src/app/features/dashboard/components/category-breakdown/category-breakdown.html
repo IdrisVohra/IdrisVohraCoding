@@ -1,0 +1,35 @@
+<section class="breakdown">
+  <div class="breakdown__head">
+    <h3>Spending by Category</h3>
+    <div class="breakdown__tabs">
+      <button type="button" [class.active]="activeTab() === 'expense'" (click)="setTab('expense')">Expenses</button>
+      <button type="button" [class.active]="activeTab() === 'income'" (click)="setTab('income')">Income</button>
+    </div>
+  </div>
+
+  @if (total === 0) {
+    <p class="breakdown__empty">No {{ activeTab() }} recorded yet.</p>
+  } @else {
+    <div class="breakdown__list">
+      @for (item of breakdown; track item.category) {
+        @if (item.total > 0) {
+          <div class="breakdown-row">
+            <span class="breakdown-row__icon" [style.background]="categoryColors[item.category]">
+              <i [class]="categoryIcons[item.category]"></i>
+            </span>
+            <span class="breakdown-row__name">{{ item.category }}</span>
+            <div class="breakdown-row__bar">
+              <div
+                class="breakdown-row__fill"
+                [style.width.%]="item.percentage"
+                [style.background]="categoryColors[item.category]"
+              ></div>
+            </div>
+            <span class="breakdown-row__amount">{{ item.total | currency }}</span>
+            <span class="breakdown-row__pct">{{ item.percentage | number: '1.0-1' }}%</span>
+          </div>
+        }
+      }
+    </div>
+  }
+</section>

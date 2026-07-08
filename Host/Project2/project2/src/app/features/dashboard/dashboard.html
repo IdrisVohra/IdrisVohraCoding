@@ -1,0 +1,27 @@
+<div class="dashboard">
+  <header class="dashboard__header">
+    <div>
+      <h1><i class="fa-solid fa-sack-dollar"></i> Budget Tracker</h1>
+      <p>Track your finances in real-time</p>
+    </div>
+    <button type="button" class="clear-btn" (click)="askClearAll()">
+      <i class="fa-solid fa-broom"></i> Clear All
+    </button>
+  </header>
+
+  <app-overview-cards />
+  <app-budget-progress />
+  <app-transaction-form />
+  <app-category-breakdown />
+  <app-transaction-filters />
+  <app-transaction-list />
+</div>
+
+<app-confirm-dialog
+  [open]="confirmClearOpen()"
+  dialogTitle="Clear all transactions?"
+  message="Every income and expense entry will be permanently deleted. This cannot be undone."
+  confirmLabel="Clear All"
+  (confirm)="confirmClearAll()"
+  (cancel)="confirmClearOpen.set(false)"
+/>

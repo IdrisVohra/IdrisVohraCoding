@@ -1,0 +1,38 @@
+<div class="transaction-item">
+  <span class="transaction-item__dot" [style.background]="categoryColors[transaction().category]">
+    <i [class]="categoryIcons[transaction().category]"></i>
+  </span>
+
+  <div class="transaction-item__content">
+    @if (isEditing()) {
+      <input
+        type="text"
+        class="transaction-item__edit-input"
+        [value]="transaction().description"
+        appAutofocus
+        (blur)="onSave($any($event.target).value)"
+        (keydown.enter)="onSave($any($event.target).value)"
+      />
+    } @else {
+      <h4>{{ transaction().description }}</h4>
+    }
+
+    <div class="transaction-item__meta">
+      <span class="tag" [class]="transaction().type">{{ transaction().category }}</span>
+      <span class="date">{{ transaction().createdAt | relativeDate }}</span>
+    </div>
+  </div>
+
+  <div class="transaction-item__amount" [class]="transaction().type">
+    {{ transaction().type === 'income' ? '+' : '-' }}{{ transaction().amount | currency }}
+  </div>
+
+  <div class="transaction-item__actions">
+    <button type="button" (click)="startEdit.emit(transaction().id)" aria-label="Edit transaction">
+      <i class="fa-solid fa-pen"></i>
+    </button>
+    <button type="button" class="danger" (click)="remove.emit(transaction().id)" aria-label="Delete transaction">
+      <i class="fa-solid fa-trash"></i>
+    </button>
+  </div>
+</div>

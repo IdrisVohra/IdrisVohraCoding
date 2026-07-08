@@ -1,0 +1,26 @@
+<form class="filters" [formGroup]="form">
+  <div class="filters__search">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" formControlName="search" placeholder="Search transactions..." />
+  </div>
+
+  <select formControlName="type" class="filters__select">
+    <option value="all">All Types</option>
+    <option value="income">Income</option>
+    <option value="expense">Expense</option>
+  </select>
+
+  <select formControlName="category" class="filters__select">
+    <option value="all">All Categories</option>
+    @for (cat of categoryOptions(); track cat) {
+      <option [value]="cat">{{ cat }}</option>
+    }
+  </select>
+
+  <select formControlName="sortBy" class="filters__select">
+    <option value="newest">Newest First</option>
+    <option value="oldest">Oldest First</option>
+    <option value="amount-high">Amount: High to Low</option>
+    <option value="amount-low">Amount: Low to High</option>
+  </select>
+</form>

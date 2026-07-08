@@ -1,0 +1,56 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.dashboard {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+
+  @include respond($bp-sm) {
+    padding: 2.8rem 1.6rem 4rem;
+  }
+
+  &__header {
+    @include flex-between;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+    margin-bottom: 3.2rem;
+    text-align: left;
+
+    @include respond($bp-sm) {
+      text-align: center;
+      justify-content: center;
+    }
+
+    h1 {
+      font-size: $fs-h1;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      text-shadow: 0 4px 20px rgba(15, 32, 39, 0.25);
+
+      i {
+        color: #5eead4;
+      }
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.6rem;
+      margin-top: 0.8rem;
+    }
+  }
+}
+
+.clear-btn {
+  @include btn-base;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+}

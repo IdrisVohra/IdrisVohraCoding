@@ -1,0 +1,26 @@
+<div class="overview-grid">
+  <app-stat-card
+    icon="fa-solid fa-scale-balanced"
+    label="Current Balance"
+    [value]="(store.balance() | currency: 'USD' : 'symbol' : '1.2-2') ?? ''"
+    variant="balance"
+  />
+  <app-stat-card
+    icon="fa-solid fa-arrow-trend-up"
+    label="Total Income"
+    [value]="'+' + ((store.totalIncome() | currency: 'USD' : 'symbol' : '1.2-2') ?? '')"
+    variant="income"
+  />
+  <app-stat-card
+    icon="fa-solid fa-arrow-trend-down"
+    label="Total Expenses"
+    [value]="'-' + ((store.totalExpenses() | currency: 'USD' : 'symbol' : '1.2-2') ?? '')"
+    variant="expense"
+  />
+  <app-stat-card
+    icon="fa-solid fa-piggy-bank"
+    label="Savings Rate"
+    [value]="(store.savingsRate() | number: '1.0-1') + '%'"
+    variant="savings"
+  />
+</div>

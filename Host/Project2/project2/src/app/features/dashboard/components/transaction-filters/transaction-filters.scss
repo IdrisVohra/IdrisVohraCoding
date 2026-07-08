@@ -1,0 +1,49 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.filters {
+  @include card;
+  padding: 1.8rem 2rem;
+  margin-bottom: 2.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  align-items: center;
+
+  &__search {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: $color-bg-soft;
+    border: 1.5px solid $color-border;
+    border-radius: $radius-pill;
+    padding: 1rem 1.6rem;
+    flex: 1;
+    min-width: 20rem;
+
+    i {
+      color: $color-muted;
+    }
+
+    input {
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 1.4rem;
+      width: 100%;
+      color: $color-ink;
+    }
+  }
+
+  &__select {
+    padding: 1rem 1.4rem;
+    border-radius: $radius-pill;
+    border: 1.5px solid $color-border;
+    background: $color-bg-soft;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: $color-ink;
+    cursor: pointer;
+    text-transform: capitalize;
+  }
+}

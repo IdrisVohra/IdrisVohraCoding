@@ -1,0 +1,66 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 32, 39, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: $z-overlay;
+  @include flex-center;
+  padding: 2rem;
+  animation: fade-in 0.2s ease;
+}
+
+.confirm-dialog {
+  background: $color-bg;
+  border-radius: $radius-md;
+  padding: 3.2rem;
+  max-width: 40rem;
+  width: 100%;
+  text-align: center;
+  box-shadow: $shadow-lg;
+  animation: pop-in 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &__icon {
+    @include flex-center;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: rgba(239, 68, 68, 0.1);
+    color: $color-danger;
+    font-size: 2.4rem;
+    margin: 0 auto 1.6rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+    color: $color-body;
+    line-height: 1.6;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 2.4rem;
+
+    button {
+      flex: 1;
+    }
+  }
+
+  &__danger {
+    @include btn-base;
+    background: $color-danger;
+    color: #fff;
+
+    &:hover {
+      background: #d63b3b;
+    }
+  }
+}

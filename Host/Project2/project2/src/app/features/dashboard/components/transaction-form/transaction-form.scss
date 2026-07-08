@@ -1,0 +1,120 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.transaction-form {
+  @include card;
+  padding: 2.4rem;
+  margin-bottom: 2.4rem;
+
+  &__type {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 1.8rem;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr auto;
+    gap: 1.4rem;
+    align-items: start;
+
+    @include respond($bp-lg) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include respond($bp-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.type-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1.2rem;
+  border-radius: $radius-sm;
+  border: 1.5px solid $color-border;
+  background: $color-bg-soft;
+  font-weight: 600;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all $transition-fast;
+  color: $color-body;
+
+  input {
+    display: none;
+  }
+
+  &.active {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: $color-danger;
+    color: $color-danger-dark;
+  }
+}
+
+.type-option:last-child.active {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: $color-success;
+  color: $color-success-dark;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-input,
+.form-select {
+  height: 4.8rem;
+  border-radius: $radius-sm;
+  border: 1.5px solid $color-border;
+  padding: 0 1.4rem;
+  font-family: $font-body;
+  font-size: 1.4rem;
+  color: $color-ink;
+  background: $color-bg-soft;
+  transition: border-color $transition-fast;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary-start;
+  }
+
+  &.invalid {
+    border-color: $color-danger;
+  }
+}
+
+.form-select {
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.error {
+  font-size: 1.2rem;
+  color: $color-danger;
+}
+
+.submit-btn {
+  @include btn-base;
+  background: $color-danger;
+  color: #fff;
+  height: 4.8rem;
+
+  &:hover {
+    background: $color-danger-dark;
+  }
+
+  &.income {
+    background: $color-success;
+
+    &:hover {
+      background: $color-success-dark;
+    }
+  }
+}

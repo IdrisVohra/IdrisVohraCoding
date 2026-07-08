@@ -1,0 +1,7 @@
+<div class="stat-card" [class]="'stat-card--' + variant()">
+  <div class="stat-card__icon"><i [class]="icon()"></i></div>
+  <div>
+    <span class="stat-card__value">{{ value() }}</span>
+    <h3 class="stat-card__label">{{ label() }}</h3>
+  </div>
+</div>
