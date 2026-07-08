@@ -1,0 +1,159 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: $z-navbar;
+  background: transparent;
+  transition: background $transition-base, box-shadow $transition-base, padding $transition-base;
+  padding: 1.6rem 0;
+
+  &--scrolled {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(14px);
+    box-shadow: $shadow-sm;
+    padding: 1rem 0;
+  }
+
+  &__inner {
+    @include flex-between;
+    gap: 2rem;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: $font-title;
+    font-weight: 700;
+    font-size: 2rem;
+    color: $color-ink;
+
+    &-icon {
+      @include flex-center;
+      width: 4.2rem;
+      height: 4.2rem;
+      border-radius: 50%;
+      background: $gradient-primary;
+      color: #fff;
+      font-size: 1.8rem;
+      box-shadow: $shadow-primary;
+    }
+
+    em {
+      font-style: normal;
+      color: $color-primary;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+
+    a {
+      font-family: $font-body;
+      font-weight: 500;
+      font-size: 1.5rem;
+      color: $color-ink;
+      position: relative;
+      padding-bottom: 0.4rem;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: $gradient-primary;
+        transition: width $transition-fast;
+      }
+
+      &:hover::after,
+      &.active::after {
+        width: 100%;
+      }
+
+      &.active {
+        color: $color-primary;
+      }
+    }
+
+    @include respond($bp-lg) {
+      display: none;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+  }
+
+  &__cta {
+    padding: 1.1rem 2.2rem;
+    font-size: 1.4rem;
+
+    @include respond($bp-sm) {
+      display: none;
+    }
+  }
+
+  &__burger {
+    display: none;
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 50%;
+    border: 1px solid $color-border;
+    background: $color-bg;
+    font-size: 1.8rem;
+    @include flex-center;
+
+    @include respond($bp-lg) {
+      display: flex;
+    }
+  }
+
+  &__mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(32rem, 84vw);
+    background: $color-bg;
+    box-shadow: $shadow-lg;
+    padding: 10rem 3.2rem 3.2rem;
+    transform: translateX(100%);
+    transition: transform $transition-base;
+    z-index: $z-overlay;
+    display: none;
+    flex-direction: column;
+    gap: 3.2rem;
+
+    @include respond($bp-lg) {
+      display: flex;
+    }
+
+    &--open {
+      transform: translateX(0);
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+
+      a {
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: $color-ink;
+
+        &.active {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}

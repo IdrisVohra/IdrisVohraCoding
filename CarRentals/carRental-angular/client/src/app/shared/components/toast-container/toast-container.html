@@ -1,0 +1,11 @@
+<div class="toast-stack" role="status" aria-live="polite">
+  @for (toast of toastService.all(); track toast.id) {
+    <div class="toast" [class]="'toast--' + toast.type">
+      <i [class]="iconFor(toast.type)"></i>
+      <p>{{ toast.message }}</p>
+      <button type="button" (click)="dismiss(toast.id)" aria-label="Dismiss">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  }
+</div>

@@ -1,0 +1,69 @@
+<section id="booking-section" class="book-section" appScrollReveal>
+  <div class="container">
+    <div class="book-card">
+      <div class="book-card__heading">
+        <h3>Reserve in minutes</h3>
+        <h2>Book your car</h2>
+      </div>
+
+      <form class="book-form" [formGroup]="store.searchForm" (ngSubmit)="submit()">
+        <div class="book-form__field">
+          <label><i class="fa-solid fa-car"></i> Car Type <b>*</b></label>
+          <select formControlName="carType" [class.invalid]="isInvalid('carType')">
+            <option value="" disabled>Select your car type</option>
+            @for (car of carModels(); track car.id) {
+              <option [value]="car.model">{{ car.name }} — &#36;{{ car.pricePerDay }}/day</option>
+            }
+          </select>
+        </div>
+
+        <div class="book-form__field">
+          <label><i class="fa-solid fa-location-dot"></i> Pick-up <b>*</b></label>
+          <select formControlName="pickUp" [class.invalid]="isInvalid('pickUp')">
+            <option value="" disabled>Select pick-up location</option>
+            @for (city of store.locations; track city) {
+              <option [value]="city">{{ city }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="book-form__field">
+          <label><i class="fa-solid fa-location-dot"></i> Drop-off <b>*</b></label>
+          <select formControlName="dropOff" [class.invalid]="isInvalid('dropOff')">
+            <option value="" disabled>Select drop-off location</option>
+            @for (city of store.locations; track city) {
+              <option [value]="city">{{ city }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="book-form__field">
+          <label><i class="fa-regular fa-calendar-days"></i> Pick-up Date <b>*</b></label>
+          <input type="date" formControlName="pickDate" [class.invalid]="isInvalid('pickDate')" />
+        </div>
+
+        <div class="book-form__field">
+          <label><i class="fa-regular fa-calendar-days"></i> Drop-off Date <b>*</b></label>
+          <input type="date" formControlName="dropDate" [class.invalid]="isInvalid('dropDate')" />
+        </div>
+
+        <div class="book-form__field book-form__submit">
+          <button type="submit" class="btn-primary">
+            Search <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </form>
+
+      @if (store.searchForm.touched && store.searchForm.invalid) {
+        <p class="book-card__error">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          @if (store.searchForm.errors?.['dropBeforePick']) {
+            Drop-off date must be on or after the pick-up date.
+          } @else {
+            Please fill in every required field to continue.
+          }
+        </p>
+      }
+    </div>
+  </div>
+</section>

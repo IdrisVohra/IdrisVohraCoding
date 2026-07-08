@@ -1,0 +1,30 @@
+<section class="testimonials-section">
+  <div class="container">
+    <div class="testimonials-heading" appScrollReveal>
+      <h3>Testimonials</h3>
+      <h2>What our customers say</h2>
+      <p>Real stories from renters who hit the road with us.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      @for (review of reviews; track review.name; let i = $index) {
+        <div class="testimonial-card" appScrollReveal="{{ i * 0.1 }}s">
+          <i class="fa-solid fa-quote-left testimonial-card__quote-icon"></i>
+          <p class="testimonial-card__text">{{ review.quote }}</p>
+          <div class="testimonial-card__stars">
+            @for (star of [1, 2, 3, 4, 5]; track star) {
+              <i class="fa-solid fa-star" [class.dim]="star > review.rating"></i>
+            }
+          </div>
+          <div class="testimonial-card__person">
+            <img [src]="review.photo" [alt]="review.name" />
+            <div>
+              <strong>{{ review.name }}</strong>
+              <span>{{ review.role }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

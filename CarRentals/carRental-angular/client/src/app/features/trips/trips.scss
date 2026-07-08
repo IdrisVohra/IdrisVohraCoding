@@ -1,0 +1,244 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.trips-hero {
+  background: $gradient-dark;
+  padding: 8rem 0 6rem;
+  text-align: center;
+  color: #fff;
+
+  &__eyebrow {
+    color: $color-primary-light;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  h1 {
+    font-size: $fs-h2;
+    margin-bottom: 1.2rem;
+  }
+
+  &__sub {
+    color: #b8b7c4;
+    font-size: 1.5rem;
+  }
+
+  &__stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 3.2rem;
+
+    strong {
+      display: block;
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+
+    span {
+      font-size: 1.3rem;
+      color: #b8b7c4;
+    }
+  }
+}
+
+.trips-section {
+  padding: 6rem 0 10rem;
+}
+
+.trips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem;
+
+  @include respond($bp-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond($bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.trip-skeleton {
+  height: 32rem;
+  border-radius: $radius-md;
+  background: linear-gradient(100deg, $color-bg-soft 30%, #eeeef4 50%, $color-bg-soft 70%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 150% 0;
+  }
+  to {
+    background-position: -50% 0;
+  }
+}
+
+.trip-card {
+  @include card;
+  @include card-hover;
+  position: relative;
+  padding: 2.4rem;
+
+  &__delete {
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 50%;
+    border: none;
+    background: rgba(239, 68, 68, 0.08);
+    color: $color-error;
+    cursor: pointer;
+    @include flex-center;
+    transition: background $transition-fast;
+
+    &:hover {
+      background: $color-error;
+      color: #fff;
+    }
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    padding-right: 3.6rem;
+
+    h3 {
+      font-size: 1.9rem;
+      color: $color-ink;
+    }
+  }
+
+  &__badge {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $color-primary;
+    background: rgba(255, 77, 48, 0.08);
+    padding: 0.4rem 1rem;
+    border-radius: $radius-pill;
+  }
+
+  &__customer,
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.4rem;
+    color: $color-body;
+    margin-bottom: 0.6rem;
+
+    i {
+      color: $color-primary;
+      width: 1.6rem;
+    }
+  }
+
+  &__route {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 1.8rem 0;
+    padding: 1.6rem;
+    background: $color-bg-soft;
+    border-radius: $radius-sm;
+
+    > div {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+
+      span {
+        font-size: 1.1rem;
+        color: $color-muted;
+        text-transform: uppercase;
+      }
+
+      strong {
+        font-size: 1.4rem;
+        color: $color-ink;
+      }
+
+      small {
+        font-size: 1.2rem;
+        color: $color-muted;
+      }
+    }
+
+    i {
+      color: $color-primary;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.6rem;
+    border-top: 1px dashed $color-border;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    span {
+      font-size: 1.1rem;
+      color: $color-muted;
+    }
+
+    strong {
+      font-size: 1.4rem;
+      color: $color-ink;
+    }
+
+    .highlight {
+      color: $color-primary;
+    }
+  }
+
+  &__status {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1.6rem;
+    font-size: 1.3rem;
+    color: $color-success;
+
+    &--pending {
+      color: $color-accent;
+    }
+  }
+}
+
+.trips-empty {
+  text-align: center;
+  padding: 8rem 0;
+  color: $color-muted;
+
+  i {
+    font-size: 5rem;
+    color: $color-border;
+    margin-bottom: 1.6rem;
+  }
+
+  h3 {
+    color: $color-ink;
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  p {
+    margin-bottom: 2.4rem;
+  }
+}

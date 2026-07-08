@@ -1,0 +1,20 @@
+@use 'variables' as *;
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: $color-accent;
+  font-size: 1.3rem;
+
+  &--empty {
+    color: $color-border;
+  }
+
+  &__value {
+    margin-left: 0.6rem;
+    color: $color-muted;
+    font-size: 1.3rem;
+    font-family: $font-body;
+  }
+}

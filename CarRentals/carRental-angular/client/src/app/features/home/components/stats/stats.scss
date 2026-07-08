@@ -1,0 +1,39 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.stats-section {
+  background: $gradient-dark;
+  padding: 6rem 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+
+  @include respond($bp-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stat-card {
+  text-align: center;
+  color: #fff;
+
+  i {
+    font-size: 2.6rem;
+    color: $color-primary-light;
+    margin-bottom: 1.2rem;
+  }
+
+  h3 {
+    font-size: 3.6rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+    color: #b8b7c4;
+  }
+}

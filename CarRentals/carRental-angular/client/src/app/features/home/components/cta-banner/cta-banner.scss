@@ -1,0 +1,52 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.cta-section {
+  padding: 0 0 10rem;
+
+  @include respond($bp-md) {
+    padding-bottom: 6rem;
+  }
+}
+
+.cta-card {
+  background: $gradient-primary;
+  border-radius: $radius-lg;
+  padding: 5rem 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.4rem;
+  flex-wrap: wrap;
+  box-shadow: $shadow-primary;
+
+  @include respond($bp-md) {
+    padding: 4rem;
+    text-align: center;
+    justify-content: center;
+  }
+
+  &__text {
+    h2 {
+      color: #fff;
+      font-size: 3.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.5rem;
+    }
+  }
+
+  .btn-primary {
+    background: #fff;
+    color: $color-primary;
+    box-shadow: none;
+
+    &:hover {
+      background: $color-ink;
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.pick-section {
+  padding: 10rem 0;
+
+  @include respond($bp-md) {
+    padding: 6rem 0;
+  }
+}
+
+.pick-heading {
+  @include section-heading;
+  text-align: center;
+  margin-bottom: 4rem;
+
+  p {
+    margin-inline: auto;
+  }
+}
+
+.pick-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-bottom: 4rem;
+
+  button {
+    padding: 1.2rem 2.4rem;
+    border-radius: $radius-pill;
+    border: 1.5px solid $color-border;
+    background: $color-bg;
+    font-family: $font-body;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: $color-ink;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &:hover {
+      border-color: $color-primary;
+      color: $color-primary;
+    }
+
+    &.active {
+      background: $gradient-primary;
+      border-color: transparent;
+      color: #fff;
+      box-shadow: $shadow-primary;
+    }
+  }
+}
+
+.pick-preview {
+  max-width: 46rem;
+  margin: 0 auto;
+}

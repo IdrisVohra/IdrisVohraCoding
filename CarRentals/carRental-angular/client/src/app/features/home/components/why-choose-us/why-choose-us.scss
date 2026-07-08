@@ -1,0 +1,76 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.choose-section {
+  padding: 10rem 0;
+
+  @include respond($bp-md) {
+    padding: 6rem 0;
+  }
+}
+
+.choose-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 6rem;
+  align-items: center;
+
+  @include respond($bp-lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.choose-media {
+  img {
+    border-radius: $radius-lg;
+    box-shadow: $shadow-lg;
+  }
+}
+
+.choose-content {
+  &__heading {
+    @include section-heading;
+    margin-bottom: 3.2rem;
+  }
+
+  &__list {
+    display: grid;
+    gap: 2.4rem;
+  }
+}
+
+.choose-item {
+  display: flex;
+  gap: 1.8rem;
+  padding: 2rem;
+  border-radius: $radius-md;
+  transition: background $transition-base, transform $transition-base;
+
+  &:hover {
+    background: $color-bg-soft;
+    transform: translateX(6px);
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 5.2rem;
+    height: 5.2rem;
+    border-radius: 1.4rem;
+    background: $gradient-primary;
+    color: #fff;
+    font-size: 2rem;
+    @include flex-center;
+  }
+
+  h4 {
+    font-size: 1.7rem;
+    color: $color-ink;
+    margin-bottom: 0.6rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+    line-height: 1.7;
+    color: $color-body;
+  }
+}

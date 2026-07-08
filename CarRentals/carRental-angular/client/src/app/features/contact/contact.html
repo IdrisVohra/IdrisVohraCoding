@@ -1,0 +1,77 @@
+<section class="contact-hero">
+  <div class="container">
+    <p class="contact-hero__eyebrow">Contact</p>
+    <h1>We'd love to hear from you</h1>
+    <p class="contact-hero__sub">Questions about a booking, a car, or a city we serve? Send us a message.</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <div class="contact-info__item">
+        <i class="fa-solid fa-location-dot"></i>
+        <div>
+          <h4>Head Office</h4>
+          <p>42 MG Road, Bengaluru, India</p>
+        </div>
+      </div>
+      <div class="contact-info__item">
+        <i class="fa-solid fa-phone"></i>
+        <div>
+          <h4>Call Us</h4>
+          <p>+91 98765 43210</p>
+        </div>
+      </div>
+      <div class="contact-info__item">
+        <i class="fa-solid fa-envelope"></i>
+        <div>
+          <h4>Email</h4>
+          <p>support&#64;hamdanrentals.com</p>
+        </div>
+      </div>
+      <div class="contact-info__item">
+        <i class="fa-solid fa-clock"></i>
+        <div>
+          <h4>Support Hours</h4>
+          <p>24/7, every day of the year</p>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form" [formGroup]="form" (ngSubmit)="submit()">
+      <div class="contact-form__row">
+        <span>
+          <label>Full Name <b>*</b></label>
+          <input type="text" formControlName="name" placeholder="Jane Doe" [class.invalid]="isInvalid('name')" />
+          @if (isInvalid('name')) { <p class="error">This field is required.</p> }
+        </span>
+        <span>
+          <label>Email <b>*</b></label>
+          <input type="email" formControlName="email" placeholder="jane@example.com" [class.invalid]="isInvalid('email')" />
+          @if (isInvalid('email')) { <p class="error">Enter a valid email address.</p> }
+        </span>
+      </div>
+
+      <span>
+        <label>Subject <b>*</b></label>
+        <input type="text" formControlName="subject" placeholder="How can we help?" [class.invalid]="isInvalid('subject')" />
+        @if (isInvalid('subject')) { <p class="error">This field is required.</p> }
+      </span>
+
+      <span>
+        <label>Message <b>*</b></label>
+        <textarea formControlName="message" rows="5" placeholder="Tell us more..." [class.invalid]="isInvalid('message')"></textarea>
+        @if (isInvalid('message')) { <p class="error">Please write at least 10 characters.</p> }
+      </span>
+
+      <button type="submit" class="btn-primary" [disabled]="isSubmitting()">
+        @if (isSubmitting()) {
+          <i class="fa-solid fa-spinner fa-spin"></i> Sending…
+        } @else {
+          Send Message <i class="fa-solid fa-paper-plane"></i>
+        }
+      </button>
+    </form>
+  </div>
+</section>

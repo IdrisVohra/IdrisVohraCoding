@@ -1,0 +1,13 @@
+@if (open()) {
+  <div class="confirm-overlay" (click)="cancel.emit()">
+    <div class="confirm-dialog" (click)="$event.stopPropagation()">
+      <div class="confirm-dialog__icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <h3>{{ title() }}</h3>
+      <p>{{ message() }}</p>
+      <div class="confirm-dialog__actions">
+        <button type="button" class="btn-ghost" (click)="cancel.emit()">Cancel</button>
+        <button type="button" class="confirm-dialog__danger" (click)="confirm.emit()">{{ confirmLabel() }}</button>
+      </div>
+    </div>
+  </div>
+}

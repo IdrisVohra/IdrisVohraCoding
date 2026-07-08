@@ -1,0 +1,100 @@
+<section class="trips-hero">
+  <div class="container">
+    <p class="trips-hero__eyebrow">Bookings</p>
+    <h1>My Trips</h1>
+    <p class="trips-hero__sub">Every reservation made through Hamdan Car Rental, in one place.</p>
+
+    @if (rentals().length > 0) {
+      <div class="trips-hero__stats">
+        <div>
+          <strong>{{ rentals().length }}</strong>
+          <span>Total Trips</span>
+        </div>
+        <div>
+          <strong>&#36;{{ totalRevenue() | number: '1.0-2' }}</strong>
+          <span>Total Charges</span>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="trips-section">
+  <div class="container">
+    @if (isLoading()) {
+      <div class="trips-grid">
+        @for (i of [1, 2, 3]; track i) {
+          <div class="trip-skeleton"></div>
+        }
+      </div>
+    } @else if (rentals().length === 0) {
+      <div class="trips-empty">
+        <i class="fa-solid fa-route"></i>
+        <h3>No trips booked yet</h3>
+        <p>Once you make a reservation, it will show up here.</p>
+        <a routerLink="/" class="btn-primary">Book a Car</a>
+      </div>
+    } @else {
+      <div class="trips-grid">
+        @for (rental of rentals(); track rental.id) {
+          <div class="trip-card">
+            <button type="button" class="trip-card__delete" (click)="askDelete(rental.id)" aria-label="Delete trip">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+
+            <div class="trip-card__head">
+              <h3>{{ rental.carModel }}</h3>
+              <span class="trip-card__badge">{{ rental.vehicleId }}</span>
+            </div>
+
+            <p class="trip-card__customer"><i class="fa-solid fa-user"></i> {{ rental.customerName }}</p>
+            <p class="trip-card__meta"><i class="fa-solid fa-phone"></i> {{ rental.customerPhone | phoneFormat }}</p>
+
+            <div class="trip-card__route">
+              <div>
+                <span>From</span>
+                <strong>{{ rental.givenPlace }}</strong>
+                <small>{{ rental.givenTime | date: 'medium' }}</small>
+              </div>
+              <i class="fa-solid fa-arrow-right-long"></i>
+              <div>
+                <span>To</span>
+                <strong>{{ rental.returnPlace }}</strong>
+                <small>{{ rental.returnTime | date: 'medium' }}</small>
+              </div>
+            </div>
+
+            <div class="trip-card__footer">
+              <div>
+                <span>Duration</span>
+                <strong>{{ rental.totalHours | duration }}</strong>
+              </div>
+              <div>
+                <span>Rate</span>
+                <strong>&#36;{{ rental.pricePerHour }}/hr</strong>
+              </div>
+              <div>
+                <span>Total</span>
+                <strong class="highlight">&#36;{{ rental.totalTripCharges }}</strong>
+              </div>
+            </div>
+
+            <div class="trip-card__status" [class.trip-card__status--pending]="!rental.documentsSubmitted">
+              <i class="fa-solid" [class.fa-circle-check]="rental.documentsSubmitted" [class.fa-circle-exclamation]="!rental.documentsSubmitted"></i>
+              {{ rental.documentsSubmitted ? 'Documents verified' : 'Documents pending' }}
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>
+
+<app-confirm-dialog
+  [open]="pendingDeleteId() !== null"
+  title="Delete this trip?"
+  message="This will permanently remove the trip record. This action cannot be undone."
+  confirmLabel="Delete Trip"
+  (confirm)="confirmDelete()"
+  (cancel)="cancelDelete()"
+/>

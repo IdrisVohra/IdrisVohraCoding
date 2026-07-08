@@ -1,0 +1,49 @@
+<section class="fleet-hero">
+  <div class="container">
+    <p class="fleet-hero__eyebrow">Our Fleet</p>
+    <h1>Find the perfect ride for every journey</h1>
+    <p class="fleet-hero__sub">
+      Browse our full lineup of hatchbacks and compacts — filter by type or search by name to
+      find your match.
+    </p>
+  </div>
+</section>
+
+<section class="fleet-section">
+  <div class="container">
+    <div class="fleet-toolbar" appScrollReveal>
+      <div class="fleet-toolbar__search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search by name or brand..." [ngModel]="search()" (ngModelChange)="search.set($event)" />
+      </div>
+
+      <div class="fleet-toolbar__categories">
+        @for (cat of categories; track cat) {
+          <button type="button" [class.active]="category() === cat" (click)="category.set(cat)">
+            {{ cat }}
+          </button>
+        }
+      </div>
+
+      <select class="fleet-toolbar__sort" [ngModel]="sortBy()" (ngModelChange)="sortBy.set($event)">
+        <option value="rating">Top Rated</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+      </select>
+    </div>
+
+    @if (filteredCars().length > 0) {
+      <div class="fleet-grid">
+        @for (car of filteredCars(); track car.id) {
+          <app-car-card [car]="car" (reserve)="reserve($event)" />
+        }
+      </div>
+    } @else {
+      <div class="fleet-empty">
+        <i class="fa-solid fa-car-side"></i>
+        <h3>No cars match your search</h3>
+        <p>Try adjusting your filters or search term.</p>
+      </div>
+    }
+  </div>
+</section>

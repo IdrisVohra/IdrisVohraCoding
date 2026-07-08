@@ -1,0 +1,136 @@
+@if (store.isModalOpen()) {
+  <div class="modal-overlay" (click)="close()"></div>
+
+  <div class="booking-modal">
+    <div class="booking-modal__title">
+      <h2>Complete Reservation</h2>
+      <button type="button" (click)="close()" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="booking-modal__car-info">
+      <div class="dates-div">
+        <div class="booking-modal__car-info__item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <h6>Pick-Up</h6>
+            <p>{{ store.searchForm.value.pickUp }} · {{ store.searchForm.value.pickDate }} {{ store.searchForm.value.pickTime }}</p>
+          </div>
+        </div>
+
+        <div class="booking-modal__car-info__item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <h6>Drop-Off</h6>
+            <p>{{ store.searchForm.value.dropOff }} · {{ store.searchForm.value.dropDate }} {{ store.searchForm.value.dropTime }}</p>
+          </div>
+        </div>
+      </div>
+
+      @if (store.selectedCar(); as car) {
+        <div class="booking-modal__car-info__model">
+          <h5><span>Car —</span> {{ car.name }}</h5>
+          <img [src]="car.image" alt="Selected car" />
+        </div>
+      }
+    </div>
+
+    <div class="booking-modal__person-info">
+      <h4>Personal Information</h4>
+      <form class="info-form" [formGroup]="store.reservationForm" (ngSubmit)="submit()">
+        <div class="info-form__2col">
+          <span>
+            <label>First Name <b>*</b></label>
+            <input formControlName="firstName" type="text" placeholder="Enter your first name" [class.invalid]="isInvalid('firstName')" />
+            @if (isInvalid('firstName')) { <p class="error-modal">This field is required.</p> }
+          </span>
+
+          <span>
+            <label>Last Name <b>*</b></label>
+            <input formControlName="lastName" type="text" placeholder="Enter your last name" [class.invalid]="isInvalid('lastName')" />
+            @if (isInvalid('lastName')) { <p class="error-modal">This field is required.</p> }
+          </span>
+
+          <span>
+            <label>Phone Number <b>*</b></label>
+            <input formControlName="phone" type="tel" placeholder="10-digit phone number" [class.invalid]="isInvalid('phone')" />
+            @if (isInvalid('phone')) { <p class="error-modal">Enter a valid 10-digit phone number.</p> }
+          </span>
+
+          <span>
+            <label>Age <b>*</b></label>
+            <input formControlName="age" type="number" placeholder="18" [class.invalid]="isInvalid('age')" />
+            @if (isInvalid('age')) { <p class="error-modal">Must be 18 or older.</p> }
+          </span>
+        </div>
+
+        <div class="info-form__1col">
+          <span>
+            <label>Email <b>*</b></label>
+            <input formControlName="email" type="email" placeholder="Enter your email address" [class.invalid]="isInvalid('email')" />
+            @if (isInvalid('email')) { <p class="error-modal">Enter a valid email address.</p> }
+          </span>
+
+          <span>
+            <label>Address <b>*</b></label>
+            <input formControlName="address" type="text" placeholder="Enter your street address" [class.invalid]="isInvalid('address')" />
+            @if (isInvalid('address')) { <p class="error-modal">This field is required.</p> }
+          </span>
+        </div>
+
+        <div class="info-form__2col">
+          <span>
+            <label>City <b>*</b></label>
+            <input formControlName="city" type="text" placeholder="Enter your city" [class.invalid]="isInvalid('city')" />
+            @if (isInvalid('city')) { <p class="error-modal">This field is required.</p> }
+          </span>
+
+          <span>
+            <label>Zip Code <b>*</b></label>
+            <input formControlName="zipCode" type="text" placeholder="Enter your zip code" [class.invalid]="isInvalid('zipCode')" />
+            @if (isInvalid('zipCode')) { <p class="error-modal">This field is required.</p> }
+          </span>
+
+          <span>
+            <label>Total Hours <b>*</b></label>
+            <input formControlName="totalHours" type="number" [class.invalid]="isInvalid('totalHours')" />
+            @if (isInvalid('totalHours')) { <p class="error-modal">Must be greater than zero.</p> }
+          </span>
+
+          <span>
+            <label>Price / Hour <b>*</b></label>
+            <input formControlName="pricePerHour" type="number" [class.invalid]="isInvalid('pricePerHour')" />
+            @if (isInvalid('pricePerHour')) { <p class="error-modal">Must be greater than zero.</p> }
+          </span>
+
+          <span>
+            <label>Advance Paid <b>*</b></label>
+            <input formControlName="advancePaid" type="number" [class.invalid]="isInvalid('advancePaid')" />
+            @if (isInvalid('advancePaid')) { <p class="error-modal">This field is required.</p> }
+          </span>
+
+          <span>
+            <label>Total Trip Charge</label>
+            <input type="text" [value]="'$' + store.totalTripCharge()" disabled />
+          </span>
+        </div>
+
+        <label class="documents-check">
+          <input formControlName="documentsSubmitted" type="checkbox" />
+          Documents submitted &amp; verified
+        </label>
+
+        <div class="reserve-button">
+          <button type="submit" [disabled]="store.isSubmitting()">
+            @if (store.isSubmitting()) {
+              <i class="fa-solid fa-spinner fa-spin"></i> Reserving…
+            } @else {
+              Reserve Now
+            }
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+}

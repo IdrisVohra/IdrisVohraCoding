@@ -1,0 +1,137 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.contact-hero {
+  background: $gradient-dark;
+  padding: 8rem 0 6rem;
+  text-align: center;
+  color: #fff;
+
+  &__eyebrow {
+    color: $color-primary-light;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  h1 {
+    font-size: $fs-h2;
+    margin-bottom: 1.2rem;
+  }
+
+  &__sub {
+    color: #b8b7c4;
+    font-size: 1.5rem;
+  }
+}
+
+.contact-section {
+  padding: 8rem 0 10rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 5rem;
+
+  @include respond($bp-lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+
+  &__item {
+    display: flex;
+    gap: 1.6rem;
+
+    i {
+      width: 5rem;
+      height: 5rem;
+      flex-shrink: 0;
+      border-radius: 1.4rem;
+      background: $gradient-primary;
+      color: #fff;
+      font-size: 1.8rem;
+      @include flex-center;
+    }
+
+    h4 {
+      font-size: 1.6rem;
+      color: $color-ink;
+      margin-bottom: 0.4rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+      color: $color-body;
+    }
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+    @include respond($bp-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  span {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  label {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: $color-ink;
+
+    b {
+      color: $color-primary;
+    }
+  }
+
+  input,
+  textarea {
+    border-radius: $radius-sm;
+    border: 1.5px solid $color-border;
+    padding: 1.4rem;
+    font-family: $font-body;
+    font-size: 1.4rem;
+    background: $color-bg-soft;
+    resize: vertical;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+
+    &.invalid {
+      border-color: $color-error;
+    }
+  }
+
+  .error {
+    color: $color-error;
+    font-size: 1.2rem;
+  }
+
+  button {
+    align-self: flex-start;
+    margin-top: 1rem;
+  }
+}

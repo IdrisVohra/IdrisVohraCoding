@@ -1,0 +1,39 @@
+<app-hero />
+<app-booking-widget />
+<app-booking-modal />
+
+<section id="pick-section" class="pick-section" appScrollReveal>
+  <div class="container">
+    <div class="pick-heading">
+      <h3>Vehicle Models</h3>
+      <h2>Our rental fleet</h2>
+      <p>
+        Choose from a variety of our amazing vehicles to rent for your next adventure or
+        business trip.
+      </p>
+    </div>
+
+    <div class="pick-tabs">
+      @for (car of cars(); track car.id) {
+        <button
+          type="button"
+          [class.active]="car.id === activeCarId()"
+          (click)="selectCar(car.id)"
+        >
+          {{ car.name }}
+        </button>
+      }
+    </div>
+
+    @if (activeCar(); as car) {
+      <div class="pick-preview">
+        <app-car-card [car]="car" (reserve)="reserve($event)" />
+      </div>
+    }
+  </div>
+</section>
+
+<app-why-choose-us />
+<app-stats />
+<app-testimonials />
+<app-cta-banner />

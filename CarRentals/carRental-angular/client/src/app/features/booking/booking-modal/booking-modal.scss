@@ -1,0 +1,234 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 11, 16, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: $z-overlay;
+  animation: fade-in 0.25s ease;
+}
+
+.booking-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(72rem, 100vw);
+  background: $color-bg;
+  z-index: $z-modal;
+  overflow-y: auto;
+  box-shadow: $shadow-lg;
+  animation: slide-in 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  padding-bottom: 4rem;
+
+  &__title {
+    @include flex-between;
+    padding: 2.8rem 3.2rem;
+    background: $gradient-primary;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    h2 {
+      font-size: 2.2rem;
+    }
+
+    button {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 1.6rem;
+      cursor: pointer;
+      @include flex-center;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.32);
+      }
+    }
+  }
+
+  &__car-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2.8rem 3.2rem;
+    border-bottom: 1px solid $color-border;
+    flex-wrap: wrap;
+
+    .dates-div {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      flex: 1;
+      min-width: 22rem;
+    }
+
+    &__item {
+      display: flex;
+      gap: 1.2rem;
+
+      i {
+        color: $color-primary;
+        font-size: 1.8rem;
+        margin-top: 0.3rem;
+      }
+
+      h6 {
+        font-size: 1.3rem;
+        color: $color-muted;
+        margin-bottom: 0.3rem;
+      }
+
+      p {
+        font-size: 1.4rem;
+        color: $color-ink;
+        font-weight: 500;
+      }
+    }
+
+    &__model {
+      text-align: center;
+
+      h5 {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+        color: $color-ink;
+
+        span {
+          color: $color-primary;
+        }
+      }
+
+      img {
+        width: 18rem;
+        border-radius: $radius-sm;
+      }
+    }
+  }
+
+  &__person-info {
+    padding: 2.8rem 3.2rem;
+
+    h4 {
+      font-size: 1.8rem;
+      color: $color-ink;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.info-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__1col,
+  &__2col {
+    display: grid;
+    gap: 2rem;
+  }
+
+  &__1col {
+    grid-template-columns: 1fr 1fr;
+
+    @include respond($bp-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__2col {
+    grid-template-columns: repeat(4, 1fr);
+
+    @include respond($bp-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond($bp-xs) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  span {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    label {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: $color-ink;
+
+      b {
+        color: $color-primary;
+      }
+    }
+
+    input {
+      height: 4.8rem;
+      border-radius: $radius-sm;
+      border: 1.5px solid $color-border;
+      padding: 0 1.4rem;
+      font-family: $font-body;
+      font-size: 1.4rem;
+      background: $color-bg-soft;
+
+      &:focus {
+        outline: none;
+        border-color: $color-primary;
+      }
+
+      &.invalid {
+        border-color: $color-error;
+      }
+
+      &:disabled {
+        color: $color-primary;
+        font-weight: 700;
+        background: rgba(255, 77, 48, 0.06);
+      }
+    }
+  }
+}
+
+.error-modal {
+  color: $color-error;
+  font-size: 1.2rem;
+}
+
+.documents-check {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.4rem;
+  color: $color-ink;
+
+  input {
+    width: 1.8rem;
+    height: 1.8rem;
+    accent-color: $color-primary;
+  }
+}
+
+.reserve-button {
+  button {
+    @include btn-primary;
+    width: 100%;
+    height: 5.4rem;
+    font-size: 1.6rem;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

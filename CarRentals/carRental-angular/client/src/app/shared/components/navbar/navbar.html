@@ -1,0 +1,40 @@
+<nav class="navbar" [class.navbar--scrolled]="isScrolled()">
+  <div class="container navbar__inner">
+    <a routerLink="/" class="navbar__brand" (click)="closeMobile()">
+      <span class="navbar__brand-icon"><i class="fa-solid fa-car-side"></i></span>
+      <span class="navbar__brand-text">Hamdan<em>Rentals</em></span>
+    </a>
+
+    <ul class="navbar__links">
+      @for (link of links; track link.path) {
+        <li>
+          <a [routerLink]="link.path" routerLinkActive="active" [routerLinkActiveOptions]="link.exactMatch">
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+
+    <div class="navbar__actions">
+      <a class="btn-primary navbar__cta" routerLink="/" fragment="booking-section">
+        Book Now <i class="fa-solid fa-arrow-right"></i>
+      </a>
+      <button type="button" class="navbar__burger" (click)="toggleMobile($event)" aria-label="Toggle menu">
+        <i class="fa-solid" [class.fa-bars]="!isMobileOpen()" [class.fa-xmark]="isMobileOpen()"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="navbar__mobile" [class.navbar__mobile--open]="isMobileOpen()" appClickOutside (appClickOutside)="closeMobile()">
+    <ul>
+      @for (link of links; track link.path) {
+        <li>
+          <a [routerLink]="link.path" routerLinkActive="active" (click)="closeMobile()">{{ link.label }}</a>
+        </li>
+      }
+    </ul>
+    <a class="btn-primary" routerLink="/" fragment="booking-section" (click)="closeMobile()">
+      Book Now <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+</nav>

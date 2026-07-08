@@ -1,0 +1,33 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.scroll-top {
+  position: fixed;
+  right: 2.4rem;
+  bottom: 2.4rem;
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 50%;
+  background: $gradient-primary;
+  color: #fff;
+  border: none;
+  font-size: 1.8rem;
+  box-shadow: $shadow-primary;
+  cursor: pointer;
+  z-index: 90;
+  @include flex-center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity $transition-base, transform $transition-base, visibility $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}

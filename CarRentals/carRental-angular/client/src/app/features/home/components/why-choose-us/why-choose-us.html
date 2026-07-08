@@ -1,0 +1,30 @@
+<section class="choose-section">
+  <div class="container choose-grid">
+    <div class="choose-media" appScrollReveal>
+      <img src="assets/images/chooseUs/main.png" alt="Why choose us" />
+    </div>
+
+    <div class="choose-content">
+      <div class="choose-content__heading" appScrollReveal>
+        <h3>Why Choose Us</h3>
+        <h2>Driving happiness, one rental at a time</h2>
+        <p>
+          We've helped thousands of travellers explore confidently with a fleet that's clean,
+          reliable and ready whenever they are.
+        </p>
+      </div>
+
+      <div class="choose-content__list">
+        @for (reason of reasons; track reason.title; let i = $index) {
+          <div class="choose-item" appScrollReveal="{{ i * 0.08 }}s">
+            <div class="choose-item__icon"><i [class]="reason.icon"></i></div>
+            <div>
+              <h4>{{ reason.title }}</h4>
+              <p>{{ reason.text }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

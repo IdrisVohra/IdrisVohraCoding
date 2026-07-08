@@ -1,0 +1,32 @@
+<article class="car-card" [class.car-card--compact]="compact()">
+  <div class="car-card__media">
+    <span class="car-card__badge">{{ car().category }}</span>
+    <img [src]="car().image" [alt]="car().name" loading="lazy" />
+  </div>
+
+  <div class="car-card__body">
+    <div class="car-card__head">
+      <div>
+        <h3>{{ car().name }}</h3>
+        <app-rating-stars [rating]="car().rating" />
+      </div>
+      <div class="car-card__price">
+        <span>&#36;{{ car().pricePerDay }}</span>
+        <small>/ day</small>
+      </div>
+    </div>
+
+    <p class="car-card__desc">{{ car().description }}</p>
+
+    <ul class="car-card__specs">
+      <li><i class="fa-solid fa-users"></i> {{ car().seats }} Seats</li>
+      <li><i class="fa-solid fa-gears"></i> {{ car().transmission }}</li>
+      <li><i class="fa-solid fa-gas-pump"></i> {{ car().fuel }}</li>
+      <li><i class="fa-solid fa-snowflake"></i> {{ car().ac ? 'AC' : 'No AC' }}</li>
+    </ul>
+
+    <button type="button" class="btn-primary car-card__cta" (click)="reserve.emit(car())">
+      Reserve Now <i class="fa-solid fa-circle-check"></i>
+    </button>
+  </div>
+</article>

@@ -1,0 +1,53 @@
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__col footer__brand">
+      <a routerLink="/" class="footer__logo">
+        <span class="footer__logo-icon"><i class="fa-solid fa-car-side"></i></span>
+        <span>Hamdan<em>Rentals</em></span>
+      </a>
+      <p>
+        Rent the car of your dreams. Unbeatable prices, unlimited miles, flexible pick-up
+        options and much more — across five major cities.
+      </p>
+      <div class="footer__socials">
+        @for (social of socials; track social.label) {
+          <a href="#" [attr.aria-label]="social.label" onclick="return false"><i [class]="social.icon"></i></a>
+        }
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <h4>Quick Links</h4>
+      <ul>
+        @for (link of quickLinks; track link.path) {
+          <li><a [routerLink]="link.path">{{ link.label }}</a></li>
+        }
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Get in Touch</h4>
+      <ul class="footer__contact">
+        <li><i class="fa-solid fa-location-dot"></i> 42 MG Road, Bengaluru, India</li>
+        <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
+        <li><i class="fa-solid fa-envelope"></i> support&#64;hamdanrentals.com</li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Download the App</h4>
+      <p>Book on the go with our mobile app.</p>
+      <div class="footer__badges">
+        <span class="footer__badge"><i class="fa-brands fa-apple"></i> App Store</span>
+        <span class="footer__badge"><i class="fa-brands fa-google-play"></i> Google Play</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <p>&copy; {{ year }} Hamdan Car Rental. All rights reserved.</p>
+      <p>Built with Angular</p>
+    </div>
+  </div>
+</footer>

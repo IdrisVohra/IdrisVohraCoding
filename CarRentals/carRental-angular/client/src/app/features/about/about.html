@@ -1,0 +1,44 @@
+<section class="about-hero">
+  <div class="container">
+    <p class="about-hero__eyebrow">About Us</p>
+    <h1>Built by drivers, for drivers</h1>
+    <p class="about-hero__sub">
+      Hamdan Car Rental started with a single hatchback and a promise to make renting a car feel
+      effortless. Today we serve five major cities with a growing, well-maintained fleet.
+    </p>
+  </div>
+</section>
+
+<section class="about-story">
+  <div class="container about-story__grid">
+    <img src="assets/images/about/about-main.jpg" alt="Our story" appScrollReveal />
+    <div appScrollReveal="0.1s">
+      <h3>Our Story</h3>
+      <h2>Making every trip effortless</h2>
+      <p>
+        What began as a small family garage has grown into a rental service trusted by thousands
+        of travellers. We believe renting a car shouldn't come with hidden fees, confusing
+        paperwork, or unreliable vehicles — so we built our entire process around transparency
+        and speed.
+      </p>
+      <p>
+        Every car in our fleet is inspected, cleaned and serviced between rentals, and our team is
+        on call 24/7 for anything the road throws at you.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="about-values">
+  <div class="container">
+    <div class="about-values__grid">
+      @for (value of values; track value.title; let i = $index) {
+        <div class="value-card" appScrollReveal="{{ i * 0.1 }}s">
+          <img [src]="value.icon" [alt]="value.title" />
+          <h4>{{ value.title }}</h4>
+          <p>{{ value.text }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

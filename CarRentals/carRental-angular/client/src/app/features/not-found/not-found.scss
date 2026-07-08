@@ -1,0 +1,37 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.not-found {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 2rem;
+
+  i {
+    font-size: 6rem;
+    color: $color-primary;
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-size: 8rem;
+    font-weight: 800;
+    color: $color-ink;
+    line-height: 1;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    color: $color-ink;
+    margin: 1.6rem 0 0.8rem;
+  }
+
+  p {
+    color: $color-body;
+    font-size: 1.5rem;
+    margin-bottom: 2.8rem;
+  }
+}
