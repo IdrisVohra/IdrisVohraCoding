@@ -3,10 +3,10 @@ const projects = [
     id: 1,
     title: "Car Rentals Services",
     image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2FyJTIwcmVudGFsfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-    link: "https://car-rentals-omega.vercel.app/",
+    link: "https://car-rentals-angular.vercel.app/",
     category: "Full Stack",
     description: "Modern car rental platform with real-time availability and booking system",
-    technologies: ["React", "Node", "MongoDB"]
+    technologies: ["Angular", "Node", "Express", "Sequelize"]
   },
   {
     id: 2,
