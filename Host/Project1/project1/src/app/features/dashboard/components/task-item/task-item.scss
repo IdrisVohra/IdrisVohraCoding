@@ -1,0 +1,148 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.task-item {
+  @include card;
+  display: flex;
+  gap: 1.4rem;
+  padding: 1.8rem;
+  align-items: flex-start;
+  transition: box-shadow $transition-base, border-color $transition-base, opacity $transition-base;
+  animation: fade-in 0.25s ease;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+
+  &--completed {
+    opacity: 0.65;
+
+    h4 {
+      text-decoration: line-through;
+    }
+  }
+
+  &--overdue {
+    border-color: rgba(239, 68, 68, 0.4);
+  }
+
+  input[type='checkbox'] {
+    width: 1.9rem;
+    height: 1.9rem;
+    margin-top: 0.3rem;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  &__select {
+    accent-color: $color-primary-start;
+  }
+
+  &__complete {
+    accent-color: $color-success;
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__head {
+    @include flex-between;
+    gap: 1rem;
+
+    h4 {
+      font-size: 1.7rem;
+      color: $color-ink;
+      word-break: break-word;
+    }
+  }
+
+  &__edit-input {
+    flex: 1;
+    height: 3.8rem;
+    border-radius: $radius-sm;
+    border: 1.5px solid $color-primary-start;
+    padding: 0 1.2rem;
+    font-size: 1.6rem;
+    font-family: $font-body;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 0.6rem;
+    flex-shrink: 0;
+
+    button {
+      width: 3.4rem;
+      height: 3.4rem;
+      border-radius: 50%;
+      border: none;
+      background: $color-bg-soft;
+      color: $color-muted;
+      cursor: pointer;
+      @include flex-center;
+      transition: background $transition-fast, color $transition-fast;
+
+      &:hover {
+        background: $color-primary-start;
+        color: #fff;
+      }
+
+      &.danger:hover {
+        background: $color-danger;
+      }
+    }
+  }
+
+  &__description {
+    font-size: 1.4rem;
+    color: $color-body;
+    margin-top: 0.6rem;
+    line-height: 1.6;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+    align-items: center;
+  }
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: $radius-pill;
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  &--category {
+    background: $color-bg-soft;
+    color: $color-ink;
+    text-transform: capitalize;
+  }
+
+  &--priority {
+    color: #fff;
+  }
+
+  &--date {
+    background: rgba(59, 130, 246, 0.1);
+    color: $color-info;
+  }
+
+  &--overdue {
+    background: rgba(239, 68, 68, 0.1);
+    color: $color-danger;
+  }
+}
+
+.tag {
+  font-size: 1.2rem;
+  color: $color-primary-start;
+  font-weight: 600;
+}

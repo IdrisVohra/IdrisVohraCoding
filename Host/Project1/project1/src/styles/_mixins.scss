@@ -1,0 +1,76 @@
+@use 'variables' as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin respond($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}
+
+@mixin card {
+  background: $color-bg;
+  border-radius: $radius-md;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-sm;
+}
+
+@mixin btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: 1.4rem;
+  border-radius: $radius-pill;
+  padding: 1.1rem 2.2rem;
+  cursor: pointer;
+  border: none;
+  transition: transform $transition-fast, box-shadow $transition-fast, background $transition-fast, color $transition-fast;
+  white-space: nowrap;
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+@mixin btn-primary {
+  @include btn-base;
+  background: $gradient-primary;
+  color: #fff;
+  box-shadow: $shadow-primary;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(102, 126, 234, 0.42);
+  }
+}
+
+@mixin btn-ghost {
+  @include btn-base;
+  background: $color-bg-soft;
+  color: $color-ink;
+  border: 1.5px solid $color-border;
+
+  &:hover:not(:disabled) {
+    border-color: $color-primary-start;
+    color: $color-primary-start;
+  }
+}

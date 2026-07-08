@@ -1,0 +1,59 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  color: #fff;
+  padding: 2.2rem 2rem;
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+  transition: transform $transition-base;
+  background: $gradient-primary;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  &--total {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+  }
+
+  &--completed {
+    background: linear-gradient(135deg, $color-success, $color-success-dark);
+  }
+
+  &--overdue {
+    background: linear-gradient(135deg, $color-danger, $color-danger-dark);
+  }
+
+  &--progress {
+    background: linear-gradient(135deg, $color-warning, $color-warning-dark);
+  }
+
+  &__icon {
+    @include flex-center;
+    width: 4.8rem;
+    height: 4.8rem;
+    flex-shrink: 0;
+    border-radius: 1.2rem;
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 1.9rem;
+  }
+
+  &__value {
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  &__label {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fff;
+    opacity: 0.9;
+    margin-top: 0.2rem;
+  }
+}

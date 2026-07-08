@@ -1,0 +1,24 @@
+@if (store.selectedIds().size > 0) {
+  <div class="bulk-bar">
+    <span class="bulk-bar__count">{{ store.selectedIds().size }} selected</span>
+    <button type="button" class="bulk-bar__btn bulk-bar__btn--complete" (click)="complete()">
+      <i class="fa-solid fa-check"></i> Mark Complete
+    </button>
+    <button type="button" class="bulk-bar__btn bulk-bar__btn--incomplete" (click)="incomplete()">
+      <i class="fa-regular fa-circle"></i> Mark Incomplete
+    </button>
+    <button type="button" class="bulk-bar__btn bulk-bar__btn--delete" (click)="askDelete()">
+      <i class="fa-solid fa-trash"></i> Delete Selected
+    </button>
+    <button type="button" class="bulk-bar__btn bulk-bar__btn--cancel" (click)="cancel()">Cancel</button>
+  </div>
+}
+
+<app-confirm-dialog
+  [open]="confirmOpen()"
+  dialogTitle="Delete selected tasks?"
+  [message]="store.selectedIds().size + ' task(s) will be permanently deleted.'"
+  confirmLabel="Delete"
+  (confirm)="confirmDelete()"
+  (cancel)="confirmOpen.set(false)"
+/>

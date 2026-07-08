@@ -1,0 +1,56 @@
+// Brand palette
+$color-primary-start: #667eea;
+$color-primary-end: #764ba2;
+$gradient-primary: linear-gradient(135deg, $color-primary-start 0%, $color-primary-end 100%);
+$gradient-page: linear-gradient(135deg, #6e8dfb 0%, #8457c9 50%, #a855c9 100%);
+
+$color-success: #10b981;
+$color-success-dark: #059669;
+$color-danger: #ef4444;
+$color-danger-dark: #dc2626;
+$color-warning: #f59e0b;
+$color-warning-dark: #d97706;
+$color-info: #3b82f6;
+
+$color-ink: #1e1b2e;
+$color-body: #4b4a68;
+$color-muted: #8f8da8;
+$color-border: #e6e4f0;
+$color-bg: #ffffff;
+$color-bg-soft: #f8f8fc;
+
+// Typography
+$font-title: 'Poppins', sans-serif;
+$font-body: 'Inter', sans-serif;
+
+$fs-h1: clamp(2.6rem, 4vw, 3.6rem);
+$fs-h2: clamp(2rem, 3vw, 2.6rem);
+$fs-h3: 1.8rem;
+$fs-body: 1.5rem;
+$fs-small: 1.3rem;
+
+// Layout
+$max-width: 130rem;
+$radius-sm: 0.8rem;
+$radius-md: 1.4rem;
+$radius-lg: 2rem;
+$radius-pill: 999px;
+
+// Shadows
+$shadow-sm: 0 2px 8px rgba(30, 27, 46, 0.06);
+$shadow-md: 0 12px 28px rgba(30, 27, 46, 0.1);
+$shadow-lg: 0 24px 56px rgba(30, 27, 46, 0.18);
+$shadow-primary: 0 14px 30px rgba(102, 126, 234, 0.35);
+
+// Motion
+$transition-fast: 0.18s ease;
+$transition-base: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+
+// Breakpoints (max-width)
+$bp-xs: 420px;
+$bp-sm: 600px;
+$bp-md: 820px;
+$bp-lg: 1080px;
+
+$z-overlay: 200;
+$z-toast: 300;

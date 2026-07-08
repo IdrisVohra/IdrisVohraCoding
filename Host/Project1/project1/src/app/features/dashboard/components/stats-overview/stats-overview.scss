@@ -1,0 +1,86 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+  margin-bottom: 2.4rem;
+
+  @include respond($bp-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond($bp-xs) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.category-stats {
+  @include card;
+  padding: 2.4rem;
+  margin-bottom: 2.4rem;
+
+  h3 {
+    font-size: 1.7rem;
+    margin-bottom: 1.8rem;
+  }
+
+  &__empty {
+    text-align: center;
+    color: $color-muted;
+    padding: 2rem 0;
+    font-size: 1.4rem;
+  }
+}
+
+.category-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.category-stat {
+  display: grid;
+  grid-template-columns: 2.4rem 10rem 1fr 5rem;
+  align-items: center;
+  gap: 1.2rem;
+
+  @include respond($bp-sm) {
+    grid-template-columns: 2.4rem 8rem 1fr 4.4rem;
+  }
+
+  &__icon {
+    @include flex-center;
+    color: $color-primary-start;
+    font-size: 1.5rem;
+  }
+
+  &__name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: $color-ink;
+    text-transform: capitalize;
+  }
+
+  &__bar {
+    height: 1rem;
+    border-radius: $radius-pill;
+    background: $color-bg-soft;
+    overflow: hidden;
+  }
+
+  &__fill {
+    height: 100%;
+    border-radius: $radius-pill;
+    background: $gradient-primary;
+    transition: width $transition-base;
+  }
+
+  &__count {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: $color-muted;
+    text-align: right;
+  }
+}

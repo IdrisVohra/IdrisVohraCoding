@@ -1,0 +1,49 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.task-list {
+  &__header {
+    @include flex-between;
+    padding: 0 0.4rem 1.2rem;
+    font-size: 1.3rem;
+    color: $color-muted;
+    font-weight: 600;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  &__empty {
+    @include card;
+    text-align: center;
+    padding: 6rem 2rem;
+    color: $color-muted;
+
+    i {
+      font-size: 4rem;
+      color: $color-border;
+      margin-bottom: 1.6rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.select-all {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+
+  input {
+    width: 1.8rem;
+    height: 1.8rem;
+    accent-color: $color-primary-start;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,34 @@
+<form class="task-form" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="task-form__row">
+    <input
+      type="text"
+      formControlName="title"
+      placeholder="Task title *"
+      class="task-input"
+      [class.invalid]="titleInvalid"
+    />
+    <input type="text" formControlName="description" placeholder="Description" class="task-input" />
+  </div>
+
+  <div class="task-form__row">
+    <select formControlName="category" class="task-select">
+      @for (cat of categories; track cat) {
+        <option [value]="cat">{{ cat }}</option>
+      }
+    </select>
+
+    <select formControlName="priority" class="task-select">
+      @for (entry of priorities; track entry[0]) {
+        <option [value]="entry[0]">{{ entry[1].label }}</option>
+      }
+    </select>
+
+    <input type="datetime-local" formControlName="dueDate" class="task-input" />
+
+    <input type="text" formControlName="tags" placeholder="Tags (comma separated)" class="task-input" />
+  </div>
+
+  <button type="submit" class="add-btn">
+    <i class="fa-solid fa-plus"></i> Add Task
+  </button>
+</form>

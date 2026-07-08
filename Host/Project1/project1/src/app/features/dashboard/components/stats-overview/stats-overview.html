@@ -1,0 +1,29 @@
+<div class="stats-grid">
+  <app-stat-card icon="fa-solid fa-list-check" label="Total Tasks" [value]="store.stats().totalTasks.toString()" variant="total" />
+  <app-stat-card icon="fa-solid fa-circle-check" label="Completed" [value]="store.stats().completedTasks.toString()" variant="completed" />
+  <app-stat-card icon="fa-solid fa-triangle-exclamation" label="Overdue" [value]="store.stats().overdueTasks.toString()" variant="overdue" />
+  <app-stat-card icon="fa-solid fa-chart-line" label="Completion Rate" [value]="store.stats().completionRate.toFixed(1) + '%'" variant="progress" />
+</div>
+
+<div class="category-stats">
+  <h3>Tasks by Category</h3>
+
+  @if (store.stats().totalTasks === 0) {
+    <p class="category-stats__empty">No tasks yet. Add some tasks to see statistics!</p>
+  } @else {
+    <div class="category-bars">
+      @for (stat of store.stats().categoryStats; track stat.category) {
+        @if (stat.total > 0) {
+          <div class="category-stat">
+            <span class="category-stat__icon"><i [class]="categoryIcons[stat.category]"></i></span>
+            <span class="category-stat__name">{{ stat.category }}</span>
+            <div class="category-stat__bar">
+              <div class="category-stat__fill" [style.width.%]="(stat.total / store.stats().totalTasks) * 100"></div>
+            </div>
+            <span class="category-stat__count">{{ stat.completed }}/{{ stat.total }}</span>
+          </div>
+        }
+      }
+    </div>
+  }
+</div>

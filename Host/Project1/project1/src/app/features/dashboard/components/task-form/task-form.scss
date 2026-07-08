@@ -1,0 +1,50 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.task-form {
+  @include card;
+  padding: 2.4rem;
+  margin-bottom: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1.4rem;
+  }
+}
+
+.task-input,
+.task-select {
+  height: 4.8rem;
+  border-radius: $radius-sm;
+  border: 1.5px solid $color-border;
+  padding: 0 1.4rem;
+  font-family: $font-body;
+  font-size: 1.4rem;
+  color: $color-ink;
+  background: $color-bg-soft;
+  transition: border-color $transition-fast;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary-start;
+  }
+
+  &.invalid {
+    border-color: $color-danger;
+  }
+}
+
+.task-select {
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.add-btn {
+  @include btn-primary;
+  align-self: flex-start;
+}

@@ -1,0 +1,54 @@
+<div
+  class="task-item"
+  [class.task-item--completed]="task().completed"
+  [class.task-item--overdue]="isOverdue()"
+>
+  <input type="checkbox" class="task-item__select" [checked]="isSelected()" (change)="toggleSelect()" />
+  <input type="checkbox" class="task-item__complete" [checked]="task().completed" (change)="toggleComplete()" />
+
+  <div class="task-item__content">
+    <div class="task-item__head">
+      @if (isEditing()) {
+        <input
+          type="text"
+          class="task-item__edit-input"
+          [value]="task().title"
+          appAutofocus
+          (blur)="saveTitle($any($event.target).value)"
+          (keydown.enter)="saveTitle($any($event.target).value)"
+        />
+      } @else {
+        <h4>{{ task().title }}</h4>
+      }
+
+      <div class="task-item__actions">
+        <button type="button" (click)="startEdit()" aria-label="Edit task">
+          <i class="fa-solid fa-pen"></i>
+        </button>
+        <button type="button" class="danger" (click)="remove()" aria-label="Delete task">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+    </div>
+
+    @if (task().description) {
+      <p class="task-item__description">{{ task().description }}</p>
+    }
+
+    <div class="task-item__meta">
+      <span class="pill pill--category"><i [class]="categoryIcons[task().category]"></i> {{ task().category }}</span>
+      <span class="pill pill--priority" [style.background]="priorities[task().priority].color">
+        {{ priorities[task().priority].label }}
+      </span>
+      @if (task().dueDate) {
+        <span class="pill pill--date" [class.pill--overdue]="isOverdue()">
+          <i class="fa-regular fa-calendar"></i> {{ task().dueDate | relativeDate }}
+          @if (isOverdue()) { · Overdue }
+        </span>
+      }
+      @for (tag of task().tags; track tag) {
+        <span class="tag">#{{ tag }}</span>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.bulk-bar {
+  @include card;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  padding: 1.4rem 2rem;
+  margin-bottom: 2.4rem;
+  background: $color-bg-soft;
+  animation: fade-in 0.2s ease;
+
+  &__count {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $color-ink;
+    margin-right: 0.4rem;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1.6rem;
+    border-radius: $radius-pill;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform $transition-fast, opacity $transition-fast;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    &--complete {
+      background: $color-success;
+      color: #fff;
+    }
+
+    &--incomplete {
+      background: $color-warning;
+      color: #fff;
+    }
+
+    &--delete {
+      background: $color-danger;
+      color: #fff;
+    }
+
+    &--cancel {
+      background: transparent;
+      color: $color-muted;
+      border: 1.5px solid $color-border;
+    }
+  }
+}

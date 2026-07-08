@@ -1,0 +1,33 @@
+<form class="filters" [formGroup]="form">
+  <div class="filters__search">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" formControlName="search" placeholder="Search tasks..." />
+  </div>
+
+  <select formControlName="category" class="filters__select">
+    <option value="all">All Categories</option>
+    @for (cat of categories; track cat) {
+      <option [value]="cat">{{ cat }}</option>
+    }
+  </select>
+
+  <select formControlName="priority" class="filters__select">
+    <option value="all">All Priorities</option>
+    @for (entry of priorities; track entry[0]) {
+      <option [value]="entry[0]">{{ entry[1].label }}</option>
+    }
+  </select>
+
+  <select formControlName="completed" class="filters__select">
+    <option value="all">All Status</option>
+    <option value="true">Completed</option>
+    <option value="false">Pending</option>
+  </select>
+
+  <select formControlName="sortBy" class="filters__select">
+    <option value="createdAt">Newest First</option>
+    <option value="priority">Priority</option>
+    <option value="dueDate">Due Date</option>
+    <option value="title">Title A-Z</option>
+  </select>
+</form>
