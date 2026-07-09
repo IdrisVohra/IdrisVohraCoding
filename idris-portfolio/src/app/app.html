@@ -1,0 +1,173 @@
+<app-three-background />
+
+<div class="page">
+  <!-- ============ NAV ============ -->
+  <nav class="nav" [class.nav--scrolled]="scrolled()">
+    <button class="nav__brand" (click)="scrollTo('hero')">
+      <span class="nav__logo">IV</span>
+      <span class="nav__name">Idris Vohra</span>
+    </button>
+
+    <div class="nav__links" [class.nav__links--open]="menuOpen()">
+      @for (link of navLinks; track link.id) {
+        <button class="nav__link" (click)="scrollTo(link.id)">{{ link.label }}</button>
+      }
+      <a class="nav__cta" href="mailto:{{ profile.email }}">Hire Me</a>
+    </div>
+
+    <button class="nav__burger" (click)="menuOpen.set(!menuOpen())" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="hero">
+    <div class="hero__content">
+      <p class="hero__eyebrow">// Hello, world — I'm</p>
+      <h1 class="hero__title">
+        <span class="hero__title-line">Idris</span>
+        <span class="hero__title-line hero__title-line--accent">Vohra</span>
+      </h1>
+      <h2 class="hero__role">{{ profile.role }}</h2>
+      <p class="hero__tagline">{{ profile.tagline }}</p>
+
+      <div class="hero__actions">
+        <button class="btn btn--primary" (click)="scrollTo('projects')">View My Work</button>
+        <a class="btn btn--ghost" href="mailto:{{ profile.email }}">Get In Touch</a>
+      </div>
+
+      <div class="hero__stats">
+        @for (stat of profile.stats; track stat.label) {
+          <div class="stat">
+            <span class="stat__value">{{ stat.value }}</span>
+            <span class="stat__label">{{ stat.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <button class="hero__scroll-hint" (click)="scrollTo('about')" aria-label="Scroll to about section">
+      <span class="hero__mouse"></span>
+      scroll
+    </button>
+  </header>
+
+  <main>
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about" appReveal>
+      <p class="section__index">01</p>
+      <h2 class="section__title">About Me</h2>
+      <div class="about card card--glass">
+        <p class="about__text">{{ profile.summary }}</p>
+        <p class="about__text about__text--muted">
+          Looking to bring this ownership mindset to a Senior Frontend / Product Engineering role at a
+          product-led company.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills" appReveal>
+      <p class="section__index">02</p>
+      <h2 class="section__title">Core Skills</h2>
+      <div class="skills">
+        @for (group of skillGroups; track group.category) {
+          <div class="card card--glass skill-card" appTilt>
+            <div class="skill-card__head">
+              <span class="skill-card__icon">{{ group.icon }}</span>
+              <h3 class="skill-card__title">{{ group.category }}</h3>
+            </div>
+            <div class="chips">
+              @for (skill of group.skills; track skill) {
+                <span class="chip">{{ skill }}</span>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience" appReveal>
+      <p class="section__index">03</p>
+      <h2 class="section__title">Experience</h2>
+      <div class="timeline">
+        @for (job of experiences; track job.company) {
+          <article class="timeline__item" appReveal>
+            <div class="timeline__marker"></div>
+            <div class="card card--glass timeline__card">
+              <header class="timeline__head">
+                <div>
+                  <h3 class="timeline__role">{{ job.role }}</h3>
+                  <p class="timeline__company">{{ job.company }} · {{ job.location }}</p>
+                </div>
+                <span class="timeline__period">{{ job.period }}</span>
+              </header>
+              <ul class="timeline__points">
+                @for (point of job.highlights; track point) {
+                  <li>{{ point }}</li>
+                }
+              </ul>
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects" appReveal>
+      <p class="section__index">04</p>
+      <h2 class="section__title">Projects</h2>
+      <div class="projects">
+        @for (project of projects; track project.name) {
+          <article class="card card--glass project-card" appTilt>
+            <p class="project-card__tag">{{ project.tag }}</p>
+            <h3 class="project-card__name">{{ project.name }}</h3>
+            @for (line of project.description; track line) {
+              <p class="project-card__desc">{{ line }}</p>
+            }
+            <div class="chips chips--tight">
+              @for (tech of project.tech; track tech) {
+                <span class="chip chip--accent">{{ tech }}</span>
+              }
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section class="section" id="education" appReveal>
+      <p class="section__index">05</p>
+      <h2 class="section__title">Education</h2>
+      <div class="education">
+        @for (edu of education; track edu.degree) {
+          <div class="card card--glass education-card" appTilt>
+            <span class="education-card__period">{{ edu.period }}</span>
+            <h3 class="education-card__degree">{{ edu.degree }}</h3>
+            <p class="education-card__institute">{{ edu.institute }}</p>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section--contact" id="contact" appReveal>
+      <p class="section__index">06</p>
+      <h2 class="section__title">Let's Build Something</h2>
+      <p class="contact__lead">
+        Open to Senior Frontend / Product Engineering roles. If you think I'd be a fit for your team,
+        my inbox is always open.
+      </p>
+      <div class="contact__actions">
+        <a class="btn btn--primary btn--lg" href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+        <a class="btn btn--ghost btn--lg" href="tel:{{ profile.phone }}">{{ profile.phone }}</a>
+        <a class="btn btn--ghost btn--lg" [href]="profile.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© {{ year }} Idris Vohra · Built with Angular + Three.js</p>
+  </footer>
+</div>
