@@ -1,11 +1,13 @@
 'use strict';
 
 import { createWriteStream, WriteStream } from 'fs';
+import * as https from 'https';
 
 process.stdin.resume();
 process.stdin.setEncoding('utf8');
 
 let inputString = '';
+let inputLines: string[] = [];
 let currentLine = 0;
 
 process.stdin.on('data', (inputStdin: string): void => {
@@ -13,12 +15,12 @@ process.stdin.on('data', (inputStdin: string): void => {
 });
 
 process.stdin.on('end', (): void => {
-    inputString = inputString.split('\n');
+    inputLines = inputString.split('\n');
     main();
 });
 
 function readLine(): string {
-    return inputString[currentLine++];
+    return inputLines[currentLine++];
 }
 
 interface HackerRankEvent {
@@ -36,6 +38,28 @@ interface EventsResponse {
     total: number;
     total_pages: number;
     data: HackerRankEvent[];
+}
+
+// HackerRank's Node runtime has no global `fetch`, so use the built-in
+// `https` module wrapped in a promise instead of an external HTTP library.
+function httpGetJson(url: string): Promise<EventsResponse> {
+    return new Promise((resolve, reject) => {
+        https
+            .get(url, (res) => {
+                let data = '';
+                res.on('data', (chunk) => {
+                    data += chunk;
+                });
+                res.on('end', () => {
+                    try {
+                        resolve(JSON.parse(data) as EventsResponse);
+                    } catch (err) {
+                        reject(err);
+                    }
+                });
+            })
+            .on('error', reject);
+    });
 }
 
 /*
@@ -57,8 +81,7 @@ async function longestDuration(organizer: string, genre: string): Promise<string
     let bestDuration = -Infinity;
 
     do {
-        const response = await fetch(`${baseUrl}&page=${page}`);
-        const body = (await response.json()) as EventsResponse;
+        const body = await httpGetJson(`${baseUrl}&page=${page}`);
         totalPages = body.total_pages;
 
         for (const event of body.data) {

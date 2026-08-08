@@ -6,6 +6,7 @@ process.stdin.resume();
 process.stdin.setEncoding('utf8');
 
 let inputString = '';
+let inputLines: string[] = [];
 let currentLine = 0;
 
 process.stdin.on('data', (inputStdin: string): void => {
@@ -13,12 +14,12 @@ process.stdin.on('data', (inputStdin: string): void => {
 });
 
 process.stdin.on('end', (): void => {
-    inputString = inputString.split('\n');
+    inputLines = inputString.split('\n');
     main();
 });
 
 function readLine(): string {
-    return inputString[currentLine++];
+    return inputLines[currentLine++];
 }
 
 /*
